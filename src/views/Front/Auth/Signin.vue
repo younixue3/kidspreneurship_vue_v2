@@ -1,17 +1,16 @@
 <template>
-  <div>
-
+  <div class="bg-blue-900 h-screen">
+    <SliderComponent></SliderComponent>
   </div>
 </template>
 
 <script>
 
-import carousel from 'vue-owl-carousel'
-
+import SliderComponent from "@/components/Front/SliderComponent";
 export default {
   name: "Signin",
   components: {
-    carousel
+    SliderComponent
   }
 }
 </script>

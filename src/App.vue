@@ -1,8 +1,4 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
   <router-view/>
 </template>
 
@@ -28,3 +24,23 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  components: {},
+  created() {
+    if (this.$store.state.darkmode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.add('light')
+    }
+// Whenever the user explicitly chooses light mode
+    localStorage.theme = 'light'
+// Whenever the user explicitly chooses dark mode
+    localStorage.theme = 'dark'
+// Whenever the user explicitly chooses to respect the OS preference
+    localStorage.removeItem('theme')
+  }
+}
+</script>
