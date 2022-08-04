@@ -33,10 +33,10 @@ export default {
       document.documentElement.classList.add('dark')
     } else {
       document.documentElement.classList.remove('dark')
-      document.documentElement.classList.add('light')
+      document.documentElement.classList.add('default')
     }
 // Whenever the user explicitly chooses light mode
-    localStorage.theme = 'light'
+    localStorage.theme = 'default'
 // Whenever the user explicitly chooses dark mode
     localStorage.theme = 'dark'
 // Whenever the user explicitly chooses to respect the OS preference
