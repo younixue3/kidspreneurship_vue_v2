@@ -13,7 +13,8 @@ import {
     faAngleRight,
     faPlay,
     faForwardStep,
-    faBackwardStep
+    faBackwardStep,
+    faCircleCheck
 } from '@fortawesome/free-solid-svg-icons'
 
 /* import font awesome icon component */
@@ -25,7 +26,8 @@ library.add(
     faAngleRight,
     faPlay,
     faForwardStep,
-    faBackwardStep
+    faBackwardStep,
+    faCircleCheck
 )
 
 createApp(App).use(store).use(router).mount('#app')
