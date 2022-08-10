@@ -8,6 +8,8 @@ import GalleryDetailPage from "@/views/Front/Gallery/GalleryDetailPage";
 import BeritaPage from "@/views/Front/Berita/BeritaPage";
 import BeritaDetailPage from "@/views/Front/Berita/BeritaDetailPage";
 import EventDetailPage from "@/views/Front/Event/EventDetailPage";
+import LombaPage from "@/views/Front/Event/Lomba/LombaPage";
+import LombaDetailPage from "@/views/Front/Event/Lomba/LombaDetailPage";
 
 const routes = [
   {
@@ -38,6 +40,14 @@ const routes = [
       {
         path: 'event/:slug',
         component: EventDetailPage
+      },
+      {
+        path: 'event/:slug/lomba',
+        component: LombaPage
+      },
+      {
+        path: 'event/:slug/lomba/:id',
+        component: LombaDetailPage
       }
     ]
   },
