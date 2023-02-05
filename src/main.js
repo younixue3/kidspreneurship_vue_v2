@@ -1,6 +1,6 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
-import router from './router'
+import index from './router'
 import store from './store'
 import './index.css'
 
@@ -14,7 +14,17 @@ import {
     faPlay,
     faForwardStep,
     faBackwardStep,
-    faCircleCheck
+    faCircleCheck,
+    faMoon,
+    faBell,
+    faTableColumns,
+    faBook,
+    faPerson,
+    faBox,
+    faPeopleLine,
+    faNewspaper,
+    faImages,
+    faBullhorn
 } from '@fortawesome/free-solid-svg-icons'
 
 /* import font awesome icon component */
@@ -27,7 +37,17 @@ library.add(
     faPlay,
     faForwardStep,
     faBackwardStep,
-    faCircleCheck
+    faCircleCheck,
+    faMoon,
+    faBell,
+    faTableColumns,
+    faBook,
+    faPerson,
+    faBox,
+    faPeopleLine,
+    faNewspaper,
+    faImages,
+    faBullhorn
 )
 
-createApp(App).use(store).use(router).mount('#app')
+createApp(App).use(store).use(index).mount('#app')

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+ol li {
+    @apply list-disc;
+    @apply list-inside;
+}
+
 html, .default {
     @apply bg-blue-900;
 }

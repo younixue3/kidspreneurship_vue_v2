@@ -1,6 +1,6 @@
 <template>
   <div class=" pt-40 p-20">
-    <h1 class="text-4xl mb-20">{{this.$route.params.id}}</h1>
+<!--    <h1 class="text-4xl mb-20">{{this.$route.params.id}}</h1>-->
     <div class="grid grid-cols-4 gap-5">
       <img v-for="(item, key) in this.data" :key="key" class="w-80 h-80 bg-white object-cover bg-gray-100 rounded-2xl" :src="item.img">
     </div>
@@ -12,7 +12,7 @@
 import PaginationComponent from "@/components/Widget/PaginationComponent";
 
 export default {
-  name: "GalleryDetailPage",
+  name: "AnnouncementPage",
   components: {
     PaginationComponent
   },

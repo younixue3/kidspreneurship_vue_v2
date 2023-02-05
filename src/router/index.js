@@ -10,6 +10,10 @@ import BeritaDetailPage from "@/views/Front/Berita/BeritaDetailPage";
 import EventDetailPage from "@/views/Front/Event/EventDetailPage";
 import LombaPage from "@/views/Front/Event/Lomba/LombaPage";
 import LombaDetailPage from "@/views/Front/Event/Lomba/LombaDetailPage";
+import AnnouncementPage from "@/views/Front/Announcement/AnnouncementPage";
+import AnnouncementDetailPage from "@/views/Front/Announcement/AnnouncementDetailPage";
+import DashboardPage from "@/views/Back/Dashboard/DashboardPage";
+import LayoutDashboardPage from "@/views/Back/Layout/LayoutDashboardPage";
 
 const routes = [
   {
@@ -38,6 +42,14 @@ const routes = [
         component: BeritaDetailPage
       },
       {
+        path: 'pengumuman',
+        component: AnnouncementPage
+      },
+      {
+        path: 'pengumuman/:slug',
+        component: AnnouncementDetailPage
+      },
+      {
         path: 'event/:slug',
         component: EventDetailPage
       },
@@ -52,15 +64,26 @@ const routes = [
     ]
   },
   {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: LayoutDashboardPage,
+    children: [
+      {
+        path: '',
+        component: DashboardPage
+      },
+    ]
+  },
+  {
     path: '/signin',
     name: 'signin',
     component: Signin
-  }
+  },
 ]
 
-const router = createRouter({
+const index = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
-export default router
+export default index
