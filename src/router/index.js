@@ -15,6 +15,7 @@ import AnnouncementDetailPage from "@/views/Front/Announcement/AnnouncementDetai
 import DashboardPage from "@/views/Back/Dashboard/DashboardPage";
 import LayoutDashboardPage from "@/views/Back/Layout/LayoutDashboardPage";
 import SignUpPage from "@/views/Auth/SignUpPage";
+import SignInPage from "@/views/Auth/SignInPage";
 
 const routes = [
   {
@@ -79,6 +80,11 @@ const routes = [
     path: '/signup',
     name: 'signup',
     component: SignUpPage
+  },
+  {
+    path: '/signin',
+    name: 'signin',
+    component: SignInPage
   },
 ]
 

@@ -29,6 +29,7 @@ nav a.router-link-exact-active {
 export default {
   components: {},
   created() {
+    // this.$router.push('/signup')
     if (this.$store.state.darkmode) {
       document.documentElement.classList.add('dark')
     } else {
