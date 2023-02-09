@@ -24,7 +24,10 @@ import {
     faPeopleLine,
     faNewspaper,
     faImages,
-    faBullhorn
+    faBullhorn,
+    faUsers,
+    faUserTie,
+    faEllipsis
 } from '@fortawesome/free-solid-svg-icons'
 
 /* import font awesome icon component */
@@ -47,7 +50,10 @@ library.add(
     faPeopleLine,
     faNewspaper,
     faImages,
-    faBullhorn
+    faBullhorn,
+    faUsers,
+    faUserTie,
+    faEllipsis
 )
 
 createApp(App).use(store).use(index).mount('#app')

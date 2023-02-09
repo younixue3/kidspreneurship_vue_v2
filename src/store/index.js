@@ -10,6 +10,9 @@ export default createStore({
     darkmode: false,
     modal: {
       navbar: false
+    },
+    formside: {
+
     }
   },
   getters: {
@@ -26,6 +29,9 @@ export default createStore({
     Authentiation (state, data) {
       state.auth.access = data.data.access
       state.auth.refresh = data.data.refresh
+    },
+    pushFormSide (state, data) {
+      state.formside = data
     }
   },
   actions: {

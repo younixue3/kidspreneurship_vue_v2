@@ -16,6 +16,11 @@ import DashboardPage from "@/views/Back/Dashboard/DashboardPage";
 import LayoutDashboardPage from "@/views/Back/Layout/LayoutDashboardPage";
 import SignUpPage from "@/views/Auth/SignUpPage";
 import SignInPage from "@/views/Auth/SignInPage";
+import PengumumanPage from "@/views/Back/Publikasi/Pengumuman/BackPengumumanPage";
+import GaleriPage from "@/views/Back/Publikasi/Galeri/BackGaleriPage";
+import BackBeritaPage from "@/views/Back/Publikasi/Berita/BackBeritaPage";
+import BackPengumumanPage from "@/views/Back/Publikasi/Pengumuman/BackPengumumanPage";
+import BackGaleriPage from "@/views/Back/Publikasi/Galeri/BackGaleriPage";
 
 const routes = [
   {
@@ -74,6 +79,18 @@ const routes = [
         path: '',
         component: DashboardPage
       },
+      {
+        path: 'berita',
+        component: BackBeritaPage
+      },
+      {
+        path: 'pengumuman',
+        component: BackPengumumanPage
+      },
+      {
+        path: 'galeri',
+        component: BackGaleriPage
+      }
     ]
   },
   {
