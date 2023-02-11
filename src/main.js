@@ -27,7 +27,9 @@ import {
     faBullhorn,
     faUsers,
     faUserTie,
-    faEllipsis
+    faEllipsis,
+    faTrash,
+    faXmark
 } from '@fortawesome/free-solid-svg-icons'
 
 /* import font awesome icon component */
@@ -53,7 +55,9 @@ library.add(
     faBullhorn,
     faUsers,
     faUserTie,
-    faEllipsis
+    faEllipsis,
+    faTrash,
+    faXmark
 )
 
 createApp(App).use(store).use(index).mount('#app')

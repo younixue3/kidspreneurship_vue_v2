@@ -22,6 +22,8 @@ import BackBeritaPage from "@/views/Back/Publikasi/Berita/BackBeritaPage";
 import BackPengumumanPage from "@/views/Back/Publikasi/Pengumuman/BackPengumumanPage";
 import BackGaleriPage from "@/views/Back/Publikasi/Galeri/BackGaleriPage";
 
+import store from "@/store";
+
 const routes = [
   {
     path: '/',
@@ -108,6 +110,26 @@ const routes = [
 const index = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+index.beforeEach((to, from, next) => {
+  store.commit('removeFormSide')
+  // if (vuex.state.modal.status) {
+  //   vuex.state.modal.status = false
+  // }
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // if (store.state.auth.access_token && store.state.auth.refresh_token) {
+    //   next()
+    // } else {
+    //   next({
+    //     path: '/login',
+    //     query: {redirect: to.fullPath}
+    //   })
+    // }
+    next()
+  } else {
+    next()
+  }
 })
 
 export default index

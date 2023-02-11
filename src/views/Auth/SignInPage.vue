@@ -43,9 +43,16 @@ export default {
   },
   methods: {
     SignIn: function () {
+
       axios.post(process.env.VUE_APP_BASE_URL + 'api/token/', this.form)
           .then(resp => {
             this.$store.commit('Authentiation', resp)
+          })
+          .finally(() =>{
+            axios.post(process.env.VUE_APP_BASE_URL + 'api/get_profile/', this.$store.state.auth)
+                .then(resp => {
+                  this.$store.commit('getProfile', resp.data)
+                })
           })
     }
   }
