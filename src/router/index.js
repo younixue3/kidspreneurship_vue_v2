@@ -23,6 +23,7 @@ import BackPengumumanPage from "@/views/Back/Publikasi/Pengumuman/BackPengumuman
 import BackGaleriPage from "@/views/Back/Publikasi/Galeri/BackGaleriPage";
 
 import store from "@/store";
+import BackEventPage from "@/views/Back/Event/BackEventPage";
 
 const routes = [
   {
@@ -82,16 +83,32 @@ const routes = [
         component: DashboardPage
       },
       {
-        path: 'berita',
-        component: BackBeritaPage
+        path: 'publikasi',
+        name: 'publikasi',
+        children: [
+          {
+            path: 'berita',
+            component: BackBeritaPage
+          },
+          {
+            path: 'pengumuman',
+            component: BackPengumumanPage
+          },
+          {
+            path: 'galeri',
+            component: BackGaleriPage
+          }
+        ]
       },
       {
-        path: 'pengumuman',
-        component: BackPengumumanPage
-      },
-      {
-        path: 'galeri',
-        component: BackGaleriPage
+        path: 'event',
+        name: 'event',
+        children: [
+          {
+            path: '',
+            component: BackEventPage
+          }
+        ]
       }
     ]
   },

@@ -50,6 +50,10 @@ export default createStore({
       state.auth.access = data.data.access
       state.auth.refresh = data.data.refresh
     },
+    Logout (state) {
+        state.auth.access = null
+        state.auth.refresh = null
+    },
     RefreshToken (state) {
       axios.post(process.env.VUE_APP_BASE_URL + 'api/token/refresh/', {refresh:state.auth.refresh})
           .then(resp => {

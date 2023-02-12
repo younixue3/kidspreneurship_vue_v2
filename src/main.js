@@ -60,4 +60,12 @@ library.add(
     faXmark
 )
 
-createApp(App).use(store).use(index).mount('#app')
+const app = createApp(App)
+
+app.config.globalProperties.$filters = {
+    formatNumber(number) {
+        return Intl.NumberFormat().format(number);
+    }
+}
+
+app.use(store).use(index).mount('#app')

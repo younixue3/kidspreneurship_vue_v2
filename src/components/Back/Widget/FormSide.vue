@@ -72,9 +72,10 @@ export default {
       const formData = new FormData()
       this.$store.commit('RefreshToken')
       for (var i in this.$store.state.formside.data) {
-        if (i === 'file') {
+        if (this.$store.state.formside.data[i].type === 'file') {
           if (typeof this.$store.state.formside.data[i].content != 'string') {
             formData.append(i, this.$store.state.formside.data[i].content)
+            console.log(i, this.$store.state.formside.data[i].content)
           }
         }else if (i === 'images') {
           for (var x in this.$store.state.formside.data[i].upload) {
@@ -109,7 +110,7 @@ export default {
 
       }
       this.$store.commit('removeFormSide')
-      this.$router.go();
+      // this.$router.go();
     },
     remove: function () {
       axios.delete(process.env.VUE_APP_BASE_URL + this.$store.state.formside.url, {headers: {

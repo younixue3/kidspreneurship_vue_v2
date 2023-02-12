@@ -52,7 +52,7 @@ export default {
     addMenuFormSide: function () {
       this.$store.commit('pushFormSide',
           {
-            url: 'api/publikasi/pengumuman/insertPengumuman/',
+            url: 'api/publikasi/pengumuman/',
             methode: 'post',
             data: {
               judul: {

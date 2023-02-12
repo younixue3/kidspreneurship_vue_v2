@@ -23,19 +23,19 @@
         <div class="flex flex-col space-y-3 border-t border-gray-700 mt-4 pt-4">
           <div class="flex flex-col space-y-3">
             <div class="text-left text-xs font-thin text-gray-400">Publikasi</div>
-            <router-link to="/dashboard/berita" class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
+            <router-link to="/dashboard/publikasi/berita" class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
               <div class="flex">
                 <FontAwesomeIcon class="m-auto" icon="fa-solid fa-newspaper" />
               </div>
               <div class="text-sm m-auto w-full">Berita</div>
             </router-link>
-            <router-link to="/dashboard/pengumuman" class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
+            <router-link to="/dashboard/publikasi/pengumuman" class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
               <div class="flex">
                 <FontAwesomeIcon class="m-auto" icon="fa-solid fa-bullhorn" />
               </div>
               <div class="text-sm m-auto w-full">Pengumuman</div>
             </router-link>
-            <router-link to="/dashboard/galeri" class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
+            <router-link to="/dashboard/publikasi/galeri" class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
               <div class="flex">
                 <FontAwesomeIcon class="m-auto" icon="fa-solid fa-images" />
               </div>
@@ -44,12 +44,12 @@
           </div>
           <div class="flex flex-col space-y-3">
             <div class="text-left text-xs font-thin text-gray-400">Event</div>
-            <button class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
+            <router-link to="/dashboard/event" class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
               <div class="flex">
                 <FontAwesomeIcon class="m-auto" icon="fa-solid fa-bullhorn" />
               </div>
               <div class="text-sm m-auto w-full">Event</div>
-            </button>
+            </router-link>
 
           </div>
           <div class="flex flex-col space-y-3">
