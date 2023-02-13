@@ -1,6 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Signin from "@/views/Front/Auth/Signin";
 import HomePage from "@/views/Front/HomePage";
 import LayoutPage from "@/views/Front/Layout/LayoutPage";
 import GalleryPage from "@/views/Front/Gallery/GalleryPage";
@@ -16,14 +14,13 @@ import DashboardPage from "@/views/Back/Dashboard/DashboardPage";
 import LayoutDashboardPage from "@/views/Back/Layout/LayoutDashboardPage";
 import SignUpPage from "@/views/Auth/SignUpPage";
 import SignInPage from "@/views/Auth/SignInPage";
-import PengumumanPage from "@/views/Back/Publikasi/Pengumuman/BackPengumumanPage";
-import GaleriPage from "@/views/Back/Publikasi/Galeri/BackGaleriPage";
 import BackBeritaPage from "@/views/Back/Publikasi/Berita/BackBeritaPage";
 import BackPengumumanPage from "@/views/Back/Publikasi/Pengumuman/BackPengumumanPage";
 import BackGaleriPage from "@/views/Back/Publikasi/Galeri/BackGaleriPage";
 
 import store from "@/store";
 import BackEventPage from "@/views/Back/Event/BackEventPage";
+import PesertaPage from "@/views/Back/Admin/PesertaPage";
 
 const routes = [
   {
@@ -77,6 +74,7 @@ const routes = [
     path: '/dashboard',
     name: 'dashboard',
     component: LayoutDashboardPage,
+    meta: {requiresAuth: true},
     children: [
       {
         path: '',
@@ -109,8 +107,23 @@ const routes = [
             component: BackEventPage
           }
         ]
+      },
+      {
+        path: 'admin',
+        name: 'admin',
+        children: [
+          {
+            path: 'peserta',
+            component: PesertaPage
+          }
+        ]
       }
     ]
+  },
+  {
+    path: '/tentang',
+    name: 'tentang',
+    component: SignUpPage
   },
   {
     path: '/signup',
@@ -135,14 +148,13 @@ index.beforeEach((to, from, next) => {
   //   vuex.state.modal.status = false
   // }
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    // if (store.state.auth.access_token && store.state.auth.refresh_token) {
-    //   next()
-    // } else {
-    //   next({
-    //     path: '/login',
-    //     query: {redirect: to.fullPath}
-    //   })
-    // }
+    if (store.state.auth.access && store.state.auth.refresh && store.state.profile.is_staff) {
+      next()
+    } else {
+      next({
+        path: '/signin'
+      })
+    }
     next()
   } else {
     next()

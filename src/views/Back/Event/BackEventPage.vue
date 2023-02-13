@@ -37,7 +37,7 @@ export default {
     }
   },
   mounted() {
-    axios.post(process.env.VUE_APP_BASE_URL + 'api/token/refresh/', {refresh:state.auth.refresh})
+    axios.post(process.env.VUE_APP_BASE_URL + 'api/token/refresh/', {refresh:this.$store.state.auth.refresh})
         .then(resp => {
           this.$store.state.auth.access = resp.data.access
         })

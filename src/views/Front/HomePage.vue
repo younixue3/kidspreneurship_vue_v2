@@ -9,12 +9,18 @@
     </div>
     <div class="my-40 overflow-hidden flex relative">
       <Carousel class="w-full" ref="HeroCarousel" :itemsToShow="2.50" :wrapAround="true">
-        <Slide v-for="slide in 10" :key="slide">
-          <div class="carousel__item text-white bg-white w-full h-64 rounded-2xl">{{ slide }}</div>
+        <Slide v-for="slide in this.testimoni" :key="slide">
+          <div class="carousel__item text-black bg-white w-full h-64 rounded-2xl flex p-5 space-x-5 text-left">
+            <img class="bg-gray-300 w-1/3 rounded-xl object-cover" :src="slide.image">
+            <div class="py-4 w-2/3">
+              <h2 class="text-xl font-bold mb-4">{{slide.nama}}</h2>
+              <p class="h-full text-sm">{{slide.testimoni}}</p>
+            </div>
+          </div>
         </Slide>
       </Carousel>
       <div class="absolute w-full h-full flex justify-between px-3">
-        <button @click="prevCarousel" class="my-auto w-10 h-10 bg-gray-400/50 rounded-xl backdrop-blur-sm"><FontAwesomeIcon icon="fa-solid fa-angle-left" /></button>
+        <button @click="prevCarousel" class="my-auto w-10 h-10 bg-gray-400/50 rounded-xl backdrop-blur-sm backdrop-opacity-20"><FontAwesomeIcon icon="fa-solid fa-angle-left" /></button>
         <button @click="nextCarousel" class="my-auto w-10 h-10 bg-gray-400/50 rounded-xl backdrop-blur-sm"><FontAwesomeIcon icon="fa-solid fa-angle-right" /></button>
       </div>
     </div>
@@ -30,6 +36,7 @@ import { Carousel, Slide } from "vue3-carousel";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import CardGalleryComponent from "@/components/Front/CardGalleryComponent";
 import CTAComponent from "@/components/Front/CTAComponent";
+import axios from "axios";
 
 export default {
   name: "HomePage",
@@ -41,7 +48,21 @@ export default {
     CardGalleryComponent,
     CTAComponent
   },
+  data() {
+    return {
+      testimoni : []
+    }
+  },
+  mounted() {
+    this.getTestimoni()
+  },
   methods: {
+    getTestimoni: function () {
+      axios.get(process.env.VUE_APP_BASE_URL + 'api/publikasi/front-testimoni/')
+          .then(resp => {
+            this.testimoni = resp.data
+          })
+    },
     nextCarousel: function () {
       this.$refs.HeroCarousel.next()
     },

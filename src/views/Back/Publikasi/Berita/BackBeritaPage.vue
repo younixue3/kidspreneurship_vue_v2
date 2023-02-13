@@ -1,6 +1,14 @@
 <template>
-  <div class="text-left">
-    <button @click="addMenuFormSide" class="bg-emerald-500 px-2 text-white">Add</button>
+  <div class="flex justify-between">
+    <div class="text-left">
+      <button @click="addMenuFormSide" class="bg-emerald-500 px-2 text-white">Add</button>
+    </div>
+    <div class="w-1/3 flex space-x-2">
+      <div class="ml-auto mt-auto">
+        <button v-if="prevpagi" @click="prevPagi" class="rounded-lg bg-gray-100 border border-gray-400 text-black w-8 h-8"><font-awesome-icon icon="fa-solid fa-chevron-left" /></button>
+        <button v-if="nextpagi" @click="nextPagi" class="rounded-lg bg-gray-100 border border-gray-400 text-black w-8 h-8"><font-awesome-icon icon="fa-solid fa-chevron-right" /></button>
+      </div>
+    </div>
   </div>
   <div class="flex flex-col space-y-5">
     <div class="bg-gray-600 flex p-2 px-3" v-for="(item, index, key) in this.berita" :key=key>
@@ -32,7 +40,9 @@ export default {
   },
   data() {
     return {
-      berita: []
+      berita: [],
+      prevpagi: null,
+      nextpagi: null
     }
   },
   beforeMount() {
@@ -42,10 +52,28 @@ export default {
     this.getBerita()
   },
   methods: {
+    prevPagi: function () {
+      axios.get(this.prevpagi, {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
+          .then(resp => {
+            this.berita = resp.data.results
+            this.nextpagi = resp.data.next
+            this.prevpagi = resp.data.previous
+          })
+    },
+    nextPagi: function () {
+      axios.get(this.nextpagi, {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
+          .then(resp => {
+            this.berita = resp.data.results
+            this.nextpagi = resp.data.next
+            this.prevpagi = resp.data.previous
+          })
+    },
     getBerita: function () {
       axios.get(process.env.VUE_APP_BASE_URL + 'api/publikasi/berita/', {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
           .then(resp => {
             this.berita = resp.data.results
+            this.nextpagi = resp.data.next
+            this.prevpagi = resp.data.previous
           })
       console.log(this.berita)
     },

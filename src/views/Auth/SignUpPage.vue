@@ -32,6 +32,10 @@
                 <option>tk</option>
               </select>
             </div>
+            <div class="col-start-1 col-span-2">
+              <label class="pl-1 text-xs text-gray-500">Asal Sekolah</label>
+              <input class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1" v-model="form.asal_sekolah" type="text">
+            </div>
             <div class="col-start-1">
               <label class="pl-1 text-xs text-gray-500">Provinsi</label>
               <select class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1" v-model="form.provinsi">
@@ -78,6 +82,7 @@ export default {
         no_hp: null,
         email: null,
         jenjang: null,
+        asal_sekolah: null,
         provinsi: null,
         kota: null,
         password: null,

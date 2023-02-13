@@ -1,9 +1,10 @@
 <template>
  <div class="text-black" v-if="$store.state.formside.url">
    <div v-for="(item, index, key) in this.$store.state.formside.data" :key="key">
-     <label class="uppercase text-white">{{ item.name }}</label>
+     <label v-if="item.type != 'hidden'" class="uppercase text-white">{{ item.name }}</label>
      <div class="my-2">
-       <input v-if="item.type != 'richtext' && item.type != 'file' && item.type != 'images'" :type="item.type" v-model="item.content">
+       <input v-if="item.type == 'text'" :type="item.type" v-model="item.content">
+       <img @click="openModal(item.content)" v-if="item.type == 'image'" :src="item.content">
        <Editor v-if="item.type == 'richtext'"
            api-key="no-api-key"
            :init="{
@@ -19,7 +20,7 @@
            v-model="item.content" :value="item.content" />
        <div v-if="item.type == 'images'">
          <InputMultiplePictureComponent name="images" @file="insertFoto(index)" />
-         <div class="grid grid-cols-3 gap-2">
+         <div class="grid grid-cols-3 gap-2 h-60 overflow-auto scrollbarhidden">
            <div tabindex="1" v-for="(item,index) in item.content" v-bind:key="index"
                 class="h-20 bg-gray-200 rounded-md flex relative h-full transition-all ease-in-out">
              <img @click="openModal(item.file)" class="rounded-md h-full w-full object-cover" :src="item.file">
@@ -33,10 +34,14 @@
        <input class="text-white w-full" v-if="item.type == 'file'" type="file" @change="imageInput(index)">
      </div>
    </div>
-   <div class="mt-10 flex space-x-5">
+   <div class="mt-10 flex space-x-5" v-if="$store.state.formside.for != 'transaksi'">
      <button @click="submit" class="bg-white text-black px-1" type="submit">Submit</button>
      <button @click="$store.commit('removeFormSide')" class="bg-white text-black px-1">Cancel</button>
      <button @click="remove" class="bg-white text-black px-1">Delete</button>
+   </div>
+   <div class="mt-10 flex space-x-5" v-if="$store.state.formside.for == 'transaksi'">
+     <button @click="submit" class="bg-white text-black px-1" type="submit">Verifikasi</button>
+     <button @click="$store.commit('removeFormSide')" class="bg-white text-black px-1">Cancel</button>
    </div>
  </div>
 </template>
@@ -110,7 +115,7 @@ export default {
 
       }
       this.$store.commit('removeFormSide')
-      // this.$router.go();
+      this.$router.go();
     },
     remove: function () {
       axios.delete(process.env.VUE_APP_BASE_URL + this.$store.state.formside.url, {headers: {
@@ -143,5 +148,12 @@ export default {
 </script>
 
 <style scoped>
+.scrollbarhidden {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 
+.scrollbarhidden::-webkit-scrollbar {
+  display: none;
+}
 </style>

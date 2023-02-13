@@ -29,7 +29,11 @@ import {
     faUserTie,
     faEllipsis,
     faTrash,
-    faXmark
+    faXmark,
+    faEllipsisVertical,
+    faArrowUpRightFromSquare,
+    faChevronLeft,
+    faChevronRight
 } from '@fortawesome/free-solid-svg-icons'
 
 /* import font awesome icon component */
@@ -57,7 +61,11 @@ library.add(
     faUserTie,
     faEllipsis,
     faTrash,
-    faXmark
+    faXmark,
+    faEllipsisVertical,
+    faArrowUpRightFromSquare,
+    faChevronLeft,
+    faChevronRight
 )
 
 const app = createApp(App)

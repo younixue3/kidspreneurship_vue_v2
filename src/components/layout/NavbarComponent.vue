@@ -5,7 +5,7 @@
         <div class="w-96 text-white text-2xl font-bold text-center">Kidspreneurship</div>
         <div class="grid grid-cols-4 w-96 text-white mr-auto">
           <div>Home</div>
-          <div @mouseover="openModal('virtualexpo')">Virtual Expo</div>
+<!--          <div @mouseover="openModal('virtualexpo')">Virtual Expo</div>-->
           <div @click="">Tentang</div>
           <div @mouseover="openModal('publikasi')">Publikasi</div>
         </div>

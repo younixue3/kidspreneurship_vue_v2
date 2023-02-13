@@ -54,12 +54,12 @@
           </div>
           <div class="flex flex-col space-y-3">
             <div class="text-left text-xs font-thin text-gray-400">Admin</div>
-            <button class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
+            <router-link to="/dashboard/admin/peserta" class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
               <div class="flex">
                 <FontAwesomeIcon class="m-auto" icon="fa-solid fa-users" />
               </div>
               <div class="text-sm m-auto w-full">Peserta</div>
-            </button>
+            </router-link>
             <button class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
               <div class="flex">
                 <FontAwesomeIcon class="m-auto" icon="fa-solid fa-user-tie" />

@@ -10,6 +10,7 @@ export default createStore({
       refresh: null
     },
     profile: {},
+    profileEvent: null,
     darkmode: false,
     modal: {
       navbar: false,
@@ -51,8 +52,9 @@ export default createStore({
       state.auth.refresh = data.data.refresh
     },
     Logout (state) {
-        state.auth.access = null
-        state.auth.refresh = null
+      state.auth.access = null
+      state.auth.refresh = null
+      state.profile = null
     },
     RefreshToken (state) {
       axios.post(process.env.VUE_APP_BASE_URL + 'api/token/refresh/', {refresh:state.auth.refresh})
