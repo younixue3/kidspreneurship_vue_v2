@@ -1,6 +1,6 @@
 <template>
   <div class="pt-40 p-20">
-    <div class="flex h-full w-full">
+    <div class="flex h-full w-full relative">
       <div class="grid grid-cols-1 w-3/4 px-20 gap-10 mr-10">
         <div v-for="(item, key) in this.data" :key="key" class="bg-gray-200 rounded-2xl h-72 flex relative overflow-hidden">
           <img :src="item.file" class="object-cover rounded-l-2xl h-full w-3/5">
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="h-screen flex relative">
+      <div class="grow shrink flex">
         <div class="sticky top-28 bg-gray-200 rounded-2xl w-72 h-96"></div>
       </div>
     </div>

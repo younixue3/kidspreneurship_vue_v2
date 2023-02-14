@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="h-screen flex relative">
+      <div class="grow shrink flex">
         <div class="sticky top-28 bg-gray-200 rounded-2xl w-72 h-96"></div>
       </div>
     </div>
