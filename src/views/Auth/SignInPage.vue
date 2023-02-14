@@ -206,6 +206,7 @@ export default {
     },
     daftarAnggota: function () {
       this.formAnggota.total_nominal = this.eventchoose.nominal
+      console.log(this.formAnggota)
       axios.post(process.env.VUE_APP_BASE_URL + 'api/event/group-event/', this.formAnggota, {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
           .then(resp => {
             this.$store.state.profileEvent = resp.data
