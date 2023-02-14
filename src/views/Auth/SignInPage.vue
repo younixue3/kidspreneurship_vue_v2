@@ -143,7 +143,7 @@ export default {
           .finally(() => {
             this.getEvent()
             if (this.$store.state.profile.is_staff) {
-              this.$router.push('/dashboard')
+              this.$router.push('')
             }
           })
     }
@@ -176,7 +176,6 @@ export default {
           alert("Kuota anggota melebihi kapasitas")
         } else {
           this.formAnggota.anggota.push({nama: null})
-          this.formAnggota.total_nominal = this.eventchoose.nominal
         }
       }
     },
@@ -206,6 +205,7 @@ export default {
           })
     },
     daftarAnggota: function () {
+      this.formAnggota.total_nominal = this.eventchoose.nominal
       axios.post(process.env.VUE_APP_BASE_URL + 'api/event/group-event/', this.formAnggota, {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
           .then(resp => {
             this.$store.state.profileEvent = resp.data
