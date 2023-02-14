@@ -10,13 +10,21 @@
           <div @mouseover="openModal('publikasi')">Publikasi</div>
         </div>
         <div class="w-52">
-          <div class="grid grid-cols-2 gap-3">
+          <div v-if="!$store.state.auth.refresh" class="grid grid-cols-2 gap-3">
             <router-link to="/signin" class="bg-transparent border-white border-2 text-white rounded-md">
               Masuk
             </router-link>
             <router-link to="/signup" class="bg-white border-2 text-black rounded-md">
               Daftar
             </router-link>
+          </div>
+          <div v-if="$store.state.auth.refresh" class="grid grid-cols-2 gap-3">
+            <router-link to="/profile" class="bg-transparent border-white border-2 text-white rounded-md">
+              Profile
+            </router-link>
+            <button @click="$store.commit('Logout')" class="bg-white border-2 text-black rounded-md">
+              Logout
+            </button>
           </div>
         </div>
       </div>

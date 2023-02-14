@@ -22,6 +22,7 @@ import store from "@/store";
 import BackEventPage from "@/views/Back/Event/BackEventPage";
 import PesertaPage from "@/views/Back/Admin/PesertaPage";
 import TentangPage from "@/views/Front/TentangPage";
+import ProfilePage from "@/views/Front/Auth/ProfilePage";
 
 const routes = [
   {
@@ -75,6 +76,11 @@ const routes = [
         component: LombaDetailPage
       }
     ]
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: ProfilePage
   },
   {
     path: '/dashboard',
