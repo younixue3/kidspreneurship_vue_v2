@@ -21,6 +21,7 @@ import BackGaleriPage from "@/views/Back/Publikasi/Galeri/BackGaleriPage";
 import store from "@/store";
 import BackEventPage from "@/views/Back/Event/BackEventPage";
 import PesertaPage from "@/views/Back/Admin/PesertaPage";
+import TentangPage from "@/views/Front/TentangPage";
 
 const routes = [
   {
@@ -28,6 +29,11 @@ const routes = [
     name: 'home',
     component: LayoutPage,
     children: [
+      {
+        path: '/tentang',
+        name: 'tentang',
+        component: TentangPage
+      },
       {
         path: '',
         component: HomePage
@@ -119,11 +125,6 @@ const routes = [
         ]
       }
     ]
-  },
-  {
-    path: '/tentang',
-    name: 'tentang',
-    component: SignUpPage
   },
   {
     path: '/signup',

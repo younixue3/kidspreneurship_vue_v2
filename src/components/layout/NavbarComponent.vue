@@ -11,12 +11,12 @@
         </div>
         <div class="w-52">
           <div class="grid grid-cols-2 gap-3">
-            <button class="bg-transparent border-white border-2 text-white rounded-md">
+            <router-link to="/signin" class="bg-transparent border-white border-2 text-white rounded-md">
               Masuk
-            </button>
-            <button class="bg-white border-2 text-black rounded-md">
+            </router-link>
+            <router-link to="/signup" class="bg-white border-2 text-black rounded-md">
               Daftar
-            </button>
+            </router-link>
           </div>
         </div>
       </div>

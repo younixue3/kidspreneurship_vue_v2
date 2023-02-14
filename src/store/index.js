@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import createPersistedState from "vuex-persistedstate";
 
 import axios from "axios";
+import router from "@/router";
 
 export default createStore({
   state: {
@@ -55,6 +56,7 @@ export default createStore({
       state.auth.access = null
       state.auth.refresh = null
       state.profile = null
+      router.push('/signin')
     },
     RefreshToken (state) {
       axios.post(process.env.VUE_APP_BASE_URL + 'api/token/refresh/', {refresh:state.auth.refresh})
