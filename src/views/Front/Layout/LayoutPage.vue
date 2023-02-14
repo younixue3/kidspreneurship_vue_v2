@@ -1,7 +1,7 @@
 <template>
-  <NavbarComponent />
+  <navbar-component />
   <router-view></router-view>
-  <FootbarComponent />
+  <footbar-component />
 </template>
 
 <script>
@@ -13,6 +13,9 @@ export default {
   components: {
     FootbarComponent,
     NavbarComponent
+  },
+  mounted() {
+    // this.$router.push('/home')
   }
 
 }
