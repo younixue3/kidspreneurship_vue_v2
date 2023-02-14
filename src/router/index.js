@@ -30,12 +30,12 @@ const routes = [
     component: LayoutPage,
     children: [
       {
-        path: '/tentang',
+        path: 'tentang',
         name: 'tentang',
         component: TentangPage
       },
       {
-        path: '',
+        path: 'home',
         component: HomePage
       },
       {
