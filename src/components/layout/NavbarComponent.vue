@@ -4,9 +4,9 @@
       <div class="flex justify-between">
         <div class="w-96 text-white text-2xl font-bold text-center">Kidspreneurship</div>
         <div class="grid grid-cols-4 w-96 text-white mr-auto">
-          <div>Home</div>
+          <router-link to="/">Home</router-link>
 <!--          <div @mouseover="openModal('virtualexpo')">Virtual Expo</div>-->
-          <div @click="">Tentang</div>
+          <router-link to="/tentang">Tentang</router-link>
           <div @mouseover="openModal('publikasi')">Publikasi</div>
         </div>
         <div class="w-52">
