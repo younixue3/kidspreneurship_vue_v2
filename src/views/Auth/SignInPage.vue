@@ -142,6 +142,9 @@ export default {
           })
           .finally(() => {
             this.getEvent()
+            if (this.$store.state.profile.is_staff) {
+              this.$router.push('/dashboard')
+            }
           })
     }
   },
