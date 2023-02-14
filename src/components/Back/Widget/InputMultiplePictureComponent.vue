@@ -53,7 +53,6 @@ export default {
   methods: {
     insertFotoRumah: function () {
       this.input = event.target.files
-      // console.log(event.target.files)
       for (let i = 0; i < this.input.length; i++) {
         const reader = new FileReader();
         reader.readAsDataURL(this.input[i])

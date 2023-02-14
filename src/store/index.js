@@ -29,7 +29,6 @@ export default createStore({
   mutations: {
     getProfile (state, data) {
       state.profile = data
-      console.log(state.profile)
     },
     closeModal (state) {
       state.modal.popup.status = false

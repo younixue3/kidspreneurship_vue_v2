@@ -98,7 +98,9 @@ export default {
     signup: function () {
       axios.post(process.env.VUE_APP_BASE_URL + 'api/auth/registerAccount/', this.form)
           .then(resp => {
-            console.log(resp.data)
+          })
+          .finally(() => {
+            this.$router.push('/signin')
           })
     },
     get_provinsi: function () {

@@ -78,7 +78,6 @@ export default {
             this.nextpagi = resp.data.next
             this.prevpagi = resp.data.previous
           })
-      console.log(this.berita)
     },
     addMenuFormSide: function () {
       this.$store.commit('pushFormSide',
@@ -129,7 +128,6 @@ export default {
             }
           }
       )
-      console.log(this.$store.state.formside)
     }
   }
 }

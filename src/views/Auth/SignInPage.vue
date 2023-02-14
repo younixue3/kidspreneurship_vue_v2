@@ -135,7 +135,6 @@ export default {
   },
   mounted() {
     // this.$store.commit('Logout')
-    // console.log(this.$store.state.profile)
     if (this.$store.state.auth.access) {
       axios.post(process.env.VUE_APP_BASE_URL + 'api/token/refresh/', {refresh: this.$store.state.auth.refresh})
           .then(resp => {
@@ -149,16 +148,13 @@ export default {
   methods: {
     imageInput: function (index) {
       this.$store.state.profile.transaksi.butki_pembayaran = event.target.files[0]
-      console.log(this.$store.state.profile.transaksi.butki_pembayaran)
     },
     inputPembayaran: function () {
-      console.log(this.$store.state.profile.transaksi)
       const formData = new FormData()
       formData.append('bukti_pembayaran', this.$store.state.profile.transaksi.butki_pembayaran)
       formData.append('status', 'proses')
       axios.put(process.env.VUE_APP_BASE_URL + 'api/transaksi/' + this.$store.state.profile.transaksi.id + '/', formData, {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
           .then(resp => {
-            console.log(resp)
             axios.post(process.env.VUE_APP_BASE_URL + 'api/get_profile/', this.$store.state.auth)
                 .then(resp => {
                   this.$store.commit('getProfile', resp.data)
@@ -173,13 +169,11 @@ export default {
     },
     addAnggota: function () {
       if (this.formAnggota.event === 1) {
-        console.log(this.formAnggota.anggota.length + 1)
         if (this.formAnggota.anggota.length + 1 > 10) {
           alert("Kuota anggota melebihi kapasitas")
         } else {
           this.formAnggota.anggota.push({nama: null})
           this.formAnggota.total_nominal = this.eventchoose.nominal
-          console.log('eh')
         }
       }
     },
@@ -188,7 +182,6 @@ export default {
           .then(resp => {
             this.event = resp.data.results
           })
-      console.log(this.event)
     },
     SignIn: function () {
 

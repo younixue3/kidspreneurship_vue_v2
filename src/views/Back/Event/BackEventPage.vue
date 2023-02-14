@@ -111,7 +111,6 @@ export default {
             }
           }
       )
-      console.log(this.$store.state.formside)
     }
   }
 }

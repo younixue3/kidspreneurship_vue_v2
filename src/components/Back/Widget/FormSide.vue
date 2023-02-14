@@ -71,7 +71,6 @@ export default {
   methods: {
     insertFoto: function (index) {
       this.$store.state.formside.data[index].upload = event.target.files
-      // console.log(this.$store.state.formside.data[index].content)
     },
     submit: function () {
       const formData = new FormData()
@@ -80,7 +79,6 @@ export default {
         if (this.$store.state.formside.data[i].type === 'file') {
           if (typeof this.$store.state.formside.data[i].content != 'string') {
             formData.append(i, this.$store.state.formside.data[i].content)
-            console.log(i, this.$store.state.formside.data[i].content)
           }
         }else if (i === 'images') {
           for (var x in this.$store.state.formside.data[i].upload) {
@@ -97,11 +95,9 @@ export default {
                 'Authorization': `Bearer   ${this.$store.state.auth.access}`
               }})
             .then(resp => {
-              console.log(resp)
             })
 
       } else if (this.$store.state.formside.methode === 'put') {
-        console.log(this.$store.state.formside.url)
         if (this.$store.state.formside.from == 'galeri') {
           this.$store.state.formside.url = this.$store.state.formside.url + 'updateGaleri/'
         }
@@ -110,7 +106,6 @@ export default {
                 'Authorization': `Bearer   ${this.$store.state.auth.access}`
               }})
             .then(resp => {
-              console.log(resp)
             })
 
       }
@@ -122,13 +117,11 @@ export default {
               'Authorization': `Bearer   ${this.$store.state.auth.access}`
             }})
           .then(resp => {
-            console.log(resp)
           })
       this.$router.go();
       this.$store.commit('removeFormSide')
     },
     imageInput: function (index) {
-      console.log(this.$store.state.formside)
       this.$store.state.formside.data[index].content = event.target.files[0]
     },
     deleteFoto: function (id) {
@@ -136,7 +129,6 @@ export default {
           'Authorization': `Bearer   ${this.$store.state.auth.access}`
         }})
           .then(resp => {
-            console.log(resp)
           })
       this.$router.go();
     },

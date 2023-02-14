@@ -83,7 +83,6 @@ export default {
   },
   methods: {
     searchInput: function () {
-      console.log(this.search)
       if (this.search != '' && this.search) {
         this.pesertafilter = this.peserta.filter((item) => {
           return item.username.toUpperCase().includes(this.search.toUpperCase()) || item.email.toUpperCase().includes(this.search.toUpperCase()) || item.asal_sekolah.toUpperCase().includes(this.search.toUpperCase()) ||  item.transaksi.status.toUpperCase().includes(this.search.toUpperCase())
@@ -118,7 +117,6 @@ export default {
             this.nextpagi = resp.data.next
             this.prevpagi = resp.data.previous
           })
-      console.log(this.peserta)
     },
     menuFormSide: function (id, bukti_pembayaran) {
       this.$store.commit('pushFormSide',
@@ -140,7 +138,6 @@ export default {
             }
           }
       )
-      console.log(this.$store.state.formside)
     }
   }
 }

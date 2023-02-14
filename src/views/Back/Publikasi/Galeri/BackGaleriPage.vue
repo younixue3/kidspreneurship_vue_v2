@@ -60,9 +60,7 @@ export default {
       axios.get(process.env.VUE_APP_BASE_URL + 'api/publikasi/galeri/', {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
           .then(resp => {
             this.galeri = resp.data.results
-            console.log(resp)
           })
-      console.log(this.pengumuman)
     },
     menuFormSide: function (id, tahun, images) {
       this.$store.commit('pushFormSide',
@@ -84,7 +82,6 @@ export default {
             }
           }
       )
-      console.log(this.$store.state.formside)
     }
   }
 }

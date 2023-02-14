@@ -24,7 +24,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$refs.slider.getBoundingClientRect())
     this.repeat()
   },
   methods: {
@@ -32,13 +31,8 @@ export default {
       const self = this
       setInterval( function () {
         for (const i of self.dataimage) {
-          // console.log(i)
-          // console.log(document.getElementById('card'+i.nama).getBoundingClientRect().x)
-          console.log(i.position = i.position - 1)
-          // console.log(document.getElementById('card'+i.nama).classList.add('-translate-x-'+i.position))
-          // console.log(self.dataimage[i])
+          i.position = i.position - 1
         }
-        // console.log(document.getElementById('card').getBoundingClientRect())
       }, 1000)
     }
   }
