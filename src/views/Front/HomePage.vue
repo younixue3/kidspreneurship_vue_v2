@@ -1,6 +1,7 @@
 <template>
   <div @click="closeModal">
     <div class="overflow-hidden h-[52rem]">
+      <HeroCardComponent></HeroCardComponent>
     </div>
     <div>
       <h1 class="text-5xl text-yellow-500 font-bold">Kids Preneurship</h1>
