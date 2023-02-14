@@ -16,7 +16,7 @@
         <img class="bg-white h-60 w-1/3 object-cover" :src="item.file">
         <div class="w-2/3 text-left">
           <h1 class="text-2xl mb-10">{{item.judul}}</h1>
-          <p class="w-96 h-40" v-html="item.isi"></p>
+          <p class="w-96 h-40 overflow-hidden" v-html="item.isi"></p>
         </div>
       </div>
       <div>
@@ -117,7 +117,7 @@ export default {
               },
               isi: {
                 content: isi,
-                type: 'text',
+                type: 'richtext',
                 name: 'isi'
               },
               file: {
