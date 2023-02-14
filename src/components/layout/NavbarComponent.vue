@@ -19,8 +19,11 @@
             </router-link>
           </div>
           <div v-if="$store.state.auth.refresh" class="grid grid-cols-2 gap-3">
-            <router-link to="/profile" class="bg-transparent border-white border-2 text-white rounded-md">
+            <router-link v-if="!$store.state.profile.is_staff" to="/profile" class="bg-transparent border-white border-2 text-white rounded-md">
               Profile
+            </router-link>
+            <router-link v-if="$store.state.profile.is_staff" to="/dashboard" class="bg-transparent border-white border-2 text-white rounded-md">
+              Dashboard
             </router-link>
             <button @click="$store.commit('Logout')" class="bg-white border-2 text-black rounded-md">
               Logout
