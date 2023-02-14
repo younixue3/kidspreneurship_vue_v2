@@ -110,7 +110,6 @@ export default {
 
       }
       this.$store.commit('removeFormSide')
-      this.$router.go();
     },
     remove: function () {
       axios.delete(process.env.VUE_APP_BASE_URL + this.$store.state.formside.url, {headers: {
@@ -118,7 +117,6 @@ export default {
             }})
           .then(resp => {
           })
-      this.$router.go();
       this.$store.commit('removeFormSide')
     },
     imageInput: function (index) {
@@ -130,7 +128,6 @@ export default {
         }})
           .then(resp => {
           })
-      this.$router.go();
     },
     openModal: function (url) {
       this.$store.commit('openModal', url)
