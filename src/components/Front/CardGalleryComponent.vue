@@ -1,5 +1,6 @@
 <template>
   <div class="w-full h-full">
+    <div class="text-5xl text-white font-bold my-10">Juri dan Mentor</div>
     <div class="flex">
       <span class="m-auto grid grid-cols-4 gap-5">
         <div v-for="(item, index, key) in this.data" :key="key" class="bg-white rounded-lg h-28 w-28">

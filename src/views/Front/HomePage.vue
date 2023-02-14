@@ -27,16 +27,9 @@
         </div>
         <div class="snap-center shrink-0 w-[15rem]"></div>
       </div>
-<!--      <div class="absolute w-full h-full flex justify-between px-3">-->
-<!--        <button @click="prevCarousel"-->
-<!--                class="my-auto w-10 h-10 bg-gray-400/50 rounded-xl backdrop-blur-sm backdrop-opacity-20">-->
-<!--          <FontAwesomeIcon icon="fa-solid fa-angle-left"/>-->
-<!--        </button>-->
-<!--        <button @click="nextCarousel" class="my-auto w-10 h-10 bg-gray-400/50 rounded-xl backdrop-blur-sm">-->
-<!--          <FontAwesomeIcon icon="fa-solid fa-angle-right"/>-->
-<!--        </button>-->
-<!--      </div>-->
     </div>
+    <CardGalleryComponent/>
+    <CTAComponent />
   </div>
 </template>
 
