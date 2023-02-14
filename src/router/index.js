@@ -35,7 +35,7 @@ const routes = [
         component: TentangPage
       },
       {
-        path: 'home',
+        path: '',
         component: HomePage
       },
       {
