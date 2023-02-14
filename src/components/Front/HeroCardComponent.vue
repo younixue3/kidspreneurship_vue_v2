@@ -23,7 +23,7 @@ export default {
     getImage: function () {
       axios.get(process.env.VUE_APP_BASE_URL + 'api/publikasi/front-images/')
           .then(resp => {
-            this.images = resp.data
+            this.images = resp.data.results
           })
     }
   }
