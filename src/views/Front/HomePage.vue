@@ -54,6 +54,8 @@ export default {
     }
   },
   mounted() {
+    document.documentElement.classList.remove('light')
+    document.documentElement.classList.add('default')
     this.getTestimoni()
   },
   methods: {
