@@ -45,11 +45,14 @@ export default {
       nextpagi: null
     }
   },
-  beforeMount() {
-    this.$store.commit('RefreshToken')
-  },
   mounted() {
-    this.getBerita()
+    axios.post(process.env.VUE_APP_BASE_URL + 'api/token/refresh/', {refresh: this.$store.state.auth.refresh})
+        .then(resp => {
+          this.$store.state.auth.access = resp.data.access
+        })
+        .finally(() => {
+          this.getBerita()
+        })
   },
   methods: {
     prevPagi: function () {

@@ -31,11 +31,14 @@ export default {
       galeri: []
     }
   },
-  beforeMount() {
-    this.$store.commit('RefreshToken')
-  },
   mounted() {
-    this.getGaleri()
+    axios.post(process.env.VUE_APP_BASE_URL + 'api/token/refresh/', {refresh: this.$store.state.auth.refresh})
+        .then(resp => {
+          this.$store.state.auth.access = resp.data.access
+        })
+        .finally(() => {
+          this.getGaleri()
+        })
   },
   methods: {
     addMenuFormSide: function () {
