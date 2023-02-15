@@ -1,31 +1,25 @@
 <template>
   <div @click="closeModal">
-    <div class="overflow-hidden h-[52rem]">
+    <div class="overflow-hidden w-full h-[40rem] lg:h-[52rem]">
       <HeroCardComponent></HeroCardComponent>
     </div>
     <div>
-      <h1 class="text-5xl text-yellow-500 font-bold">Kids Preneurship</h1>
-      <div class="px-20 text-white font-semibold text-lg mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Nunc dui leo, tempus id quam a, tempus placerat nisl. Aenean posuere felis eu faucibus imperdiet. Proin
-        pellentesque consectetur convallis. Sed eleifend enim at ante placerat aliquet. Donec mollis lacus lacus,
-        ultricies imperdiet arcu ullamcorper ut. Aliquam ornare posuere rutrum. Nam vitae lorem arcu. Sed vel odio sed
-        ex suscipit lacinia. Vestibulum suscipit odio eu elit semper consequat quis in libero. Mauris commodo nibh a
-        vehicula lacinia. Sed purus erat, auctor id sollicitudin et, congue accumsan sem. Sed purus nunc, viverra sed
-        augue id, finibus convallis felis. Praesent nisl arcu, scelerisque at laoreet vitae, consequat ac quam.
+      <h1 class="text-4xl lg:text-5xl text-yellow-500 font-bold">Kids Preneurship</h1>
+      <div class="px-5 lg:px-20 text-white font-semibold text-sm lg:text-lg mt-5">Kidspreneurship merupakan event tahunan Sekolah Harapan Bangsa Balikpapan. Kidsprenurship sendiri lahir karena keprihatinan sekolah akan rendahnya angka wiraswasta di Indonesia di tahun 2013. Untuk itu Sekolah Harapan Bangsa Balikpapan mengadakan event Kidspreneurship pertama kali di tahun 2013 bagi siswa-siswi SD Harapan Bangsa Balikpapan, dan inilah yang menjadi latar belakang dari nama Kidsprenurship. Dengan hadirnya Kidspreneurship, diharapkan mampu mengasah kemampuan wirausaha serta kreatifitas anak-anak sejak dini. Sehingga dapat mempersiapkan generasi yang memiliki kemampuan dalam wirausaha dan meningkatkan angka wirausaha di Indonesia nantinya.
       </div>
     </div>
-    <div class="my-40 overflow-hidden flex relative">
+    <div class="my-14 lg:my-40 overflow-hidden flex relative">
       <div class="relative w-full flex gap-6 snap-x snap-mandatory overflow-x-auto pb-14 scrollbarhidden">
-        <div class="snap-center shrink-0 w-[15rem]"></div>
+        <div class="snap-center shrink-0 w-20 lg:w-[15rem]"></div>
         <div v-for="slide in this.testimoni" :key="slide"
-             class="snap-center shrink-0 text-black bg-white w-full h-64 w-[35rem] rounded-2xl flex p-5 space-x-5 text-left">
+             class="snap-center shrink-0 text-black bg-white w-full h-40 lg:h-64 w-[20rem] lg:w-[35rem] rounded-2xl flex p-5 space-x-5 text-left">
           <img class="bg-gray-300 w-1/3 rounded-xl object-cover" :src="slide.image">
-          <div class="py-4 w-2/3">
-            <h2 class="text-xl font-bold mb-4">{{ slide.nama }}</h2>
-            <p class="h-full text-sm">{{ slide.testimoni }}</p>
+          <div class="py-2 lg:py-4 w-2/3 overflow-hidden">
+            <h2 class="text-sm lg:text-xl font-bold mb-2 lg:mb-4">{{ slide.nama }}</h2>
+            <p class="h-full text-xs lg:text-sm">{{ slide.testimoni }}</p>
           </div>
         </div>
-        <div class="snap-center shrink-0 w-[15rem]"></div>
+        <div class="snap-center shrink-0 w-20 lg:w-[15rem]"></div>
       </div>
     </div>
     <CardGalleryComponent/>

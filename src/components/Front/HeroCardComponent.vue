@@ -1,7 +1,10 @@
 <template>
   <div class="overflow-hidden w-screen transform scale-110 -rotate-3 mt-20 z-0">
-    <div class="grid grid-cols-8 h-full gap-5 w-full mb-5">
+    <div class="grid-cols-8 hidden lg:grid h-full gap-5 w-full mb-5">
       <img v-for="(item, index, key) in this.images" :key="key" :src="item.file" class="mx-3 h-80 w-60 bg-white rounded-2xl object-cover">
+    </div>
+    <div class="grid grid-cols-3 lg:hidden overflow-hidden h-full gap-5 w-full mb-5">
+      <img v-for="(item, index, key) in this.images.slice(0, 6)" :key="key" :src="item.file" class="mx-3 h-52 w-60 bg-white rounded-2xl object-cover">
     </div>
   </div>
 </template>

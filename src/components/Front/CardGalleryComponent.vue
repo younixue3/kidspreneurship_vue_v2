@@ -1,17 +1,17 @@
 <template>
   <div class="w-full h-full">
-    <div class="text-5xl text-white font-bold my-10">Juri dan Mentor</div>
+    <div class="text-2xl lg:text-5xl text-white font-bold my-10">Juri dan Mentor</div>
     <div class="flex">
       <span class="m-auto grid grid-cols-4 gap-5">
-        <div v-for="(item, index, key) in this.data" :key="key" class="bg-white rounded-lg h-28 w-28">
+        <div v-for="(item, index, key) in this.data" :key="key" class="bg-white rounded-lg h-14 lg:h-28 w-14 lg:w-28">
           <img @click="clickCard(key)" class="object-cover rounded-lg object-top h-full w-full" :src="item.image">
         </div>
       </span>
     </div>
     <div class="flex my-10">
-      <div class="m-auto bg-white rounded-lg w-[60rem] h-96 grid grid-cols-3 p-5">
+      <div class="m-auto bg-white rounded-lg w-[19rem] lg:w-[60rem] h-full grid grid-cols-1 lg:grid-cols-3 p-5">
         <div class="flex">
-          <img class="object-cover m-auto h-80 w-80 rounded-lg" :src="this.showCard.image">
+          <img class="object-cover m-auto h-44 lg:h-80 w-full lg:w-80 rounded-lg" :src="this.showCard.image">
         </div>
         <div class="col-span-2 pl-10">
           <h3 class="text-3xl font-bold text-start">{{this.showCard.nama}}</h3>

@@ -2,14 +2,14 @@
   <div class="fixed z-50 w-full">
     <div class="py-8 backdrop-blur-md bg-gray-900/80">
       <div class="flex justify-between">
-        <div class="w-96 text-white text-2xl font-bold text-center">Kidspreneurship</div>
-        <div class="grid grid-cols-4 w-96 text-white mr-auto">
+        <div class="w-96 hidden lg:inline text-white text-2xl font-bold text-center">Kidspreneurship</div>
+        <div class="grid grid-cols-3 gap-4 lg:w-96 text-white m-auto lg:mr-auto">
           <router-link to="/">Home</router-link>
 <!--          <div @mouseover="openModal('virtualexpo')">Virtual Expo</div>-->
           <router-link to="/tentang">Tentang</router-link>
           <div @mouseover="openModal('publikasi')">Publikasi</div>
         </div>
-        <div class="w-52">
+        <div class="w-52 hidden lg:inline">
           <div v-if="!$store.state.auth.refresh" class="grid grid-cols-2 gap-3">
             <router-link to="/signin" class="bg-transparent border-white border-2 text-white rounded-md">
               Masuk
@@ -33,14 +33,14 @@
       </div>
     </div>
     <NavbarModalComponent>
-      <div v-if="this.page == 'virtualexpo'" class="flex flex-col justify-between w-1/4 py-5">
-        <router-link to="/event/kidspreneurship-2k23" class="rounded-l-3xl p-5 bg-gray-200">Kidspreneurship 2K23</router-link>
-        <router-link to="/event/lomba-pendukung" class="rounded-l-3xl p-5 bg-gray-200">Lomba Pendukung</router-link>
+      <div v-if="this.page == 'virtualexpo'" class="flex flex-col justify-between w-full lg:w-1/4 py-5">
+        <router-link to="/event/kidspreneurship-2k23" class="rounded-3xl lg:rounded-l-3xl p-5 bg-gray-200">Kidspreneurship 2K23</router-link>
+        <router-link to="/event/lomba-pendukung" class="rounded-3xl lg:rounded-l-3xl p-5 bg-gray-200">Lomba Pendukung</router-link>
       </div>
-      <div v-if="this.page == 'publikasi'" class="flex flex-col justify-between w-1/4 py-5">
-        <router-link to="/pengumuman" class="rounded-l-3xl p-5 bg-gray-200">Pengumuman</router-link>
-        <router-link to="/gallery" class="rounded-l-3xl p-5 bg-gray-200">Gallery</router-link>
-        <router-link to="/berita" class="rounded-l-3xl p-5 bg-gray-200">Berita</router-link>
+      <div v-if="this.page == 'publikasi'" class="flex flex-col justify-between w-full lg:w-1/4 py-5">
+        <router-link to="/pengumuman" class="rounded-3xl lg:rounded-l-3xl p-5 bg-gray-200">Pengumuman</router-link>
+        <router-link to="/gallery" class="rounded-3xl lg:rounded-l-3xl p-5 bg-gray-200">Gallery</router-link>
+        <router-link to="/berita" class="rounded-3xl lg:rounded-l-3xl p-5 bg-gray-200">Berita</router-link>
       </div>
     </NavbarModalComponent>
   </div>

@@ -5,7 +5,7 @@
         <img class="h-10 w-10 bg-gray-600 rounded-lg p-0.5 object-contain m-auto" src="@/assets/logo_colorfull.png">
         <div class="m-auto">Dashboard</div>
       </div>
-      <div class="py-5 px-3 h-full">
+      <div class="py-5 px-3 h-full relative flex flex-col">
         <div class="flex flex-col space-y-2">
           <router-link to="/dashboard" class="hover:bg-gray-500 px-2 rounded-lg flex space-x-3 text-left">
             <div class="m-auto  ">
@@ -20,7 +20,7 @@
             <div class="text-sm m-auto w-full">Panduan</div>
           </button>
         </div>
-        <div class="flex flex-col space-y-3 border-t border-gray-700 mt-4 pt-4">
+        <div class="flex flex-col relative space-y-3 border-t border-gray-700 mt-4 pt-4">
           <div class="flex flex-col space-y-3">
             <div class="text-left text-xs font-thin text-gray-400">Publikasi</div>
             <router-link to="/dashboard/publikasi/berita" class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
@@ -72,6 +72,9 @@
               <div class="text-sm m-auto w-full">Logout</div>
             </button>
           </div>
+        </div>
+        <div class="mt-auto">
+          <div class="mt-auto text-xs">Created With <FontAwesomeIcon class="text-rose-500" icon="fa-solid fa-heart"></FontAwesomeIcon> By <a href="https://www.linkedin.com/in/ricko-caesar-aprilla-tiaka-191095200/" target="_blank">Ricko</a></div>
         </div>
       </div>
     </div>

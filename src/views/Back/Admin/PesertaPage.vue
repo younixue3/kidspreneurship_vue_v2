@@ -35,13 +35,13 @@
           </td>
           <td class="truncate pl-4 border-r">
             <button class="font-normal text-white rounded-lg px-2 uppercase mr-2"
-                    :class="item.transaksi.status == 'pembayaran' ? 'bg-red-500' : item.transaksi.status == 'proses' ? 'bg-blue-500' : 'bg-green-500'">
-              {{ item.transaksi.status }}
+                    :class="item.transaksi ? item.transaksi.status == 'pembayaran' ? 'bg-red-500' : item.transaksi.status == 'proses' ? 'bg-blue-500' : 'bg-green-500' : null">
+              {{ item.transaksi ? item.transaksi.status : null }}
             </button>
-            <a v-if="item.transaksi.bukti_pembayaran" :href="item.transaksi.bukti_pembayaran" target="_blank"><font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" /></a>
+            <a v-if="item.transaksi ? item.transaksi.bukti_pembayaran : false" :href="item.transaksi ? item.transaksi.bukti_pembayaran : '#'" target="_blank"><font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" /></a>
           </td>
           <td class="pl-1">
-            <button v-if="item.transaksi.bukti_pembayaran" class="hover:bg-gray-200 text-center rounded-lg w-7 h-7" @click="menuFormSide(item.transaksi.id, item.transaksi.bukti_pembayaran)">
+            <button v-if="item.transaksi ? item.transaksi.bukti_pembayaran : false" class="hover:bg-gray-200 text-center rounded-lg w-7 h-7" @click="menuFormSide(item.transaksi.id, item.transaksi.bukti_pembayaran)">
               <font-awesome-icon icon="fa-solid fa-ellipsis-vertical"/>
             </button>
           </td>

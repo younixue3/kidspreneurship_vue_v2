@@ -6,7 +6,7 @@
        <input v-if="item.type == 'text' || item.type == 'number'" :type="item.type" v-model="item.content">
        <img @click="openModal(item.content)" v-if="item.type == 'image'" :src="item.content">
        <Editor v-if="item.type == 'richtext'"
-           api-key="no-api-key"
+           api-key="myd6mneo80f63ct1oaplcds41f0tlhaveajnuxiiaenjdgol"
            :init="{
                 plugins: [
                  'advlist autolink lists link image charmap print preview anchor',

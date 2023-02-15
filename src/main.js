@@ -33,7 +33,8 @@ import {
     faEllipsisVertical,
     faArrowUpRightFromSquare,
     faChevronLeft,
-    faChevronRight
+    faChevronRight,
+    faHeart
 } from '@fortawesome/free-solid-svg-icons'
 
 /* import font awesome icon component */
@@ -65,7 +66,8 @@ library.add(
     faEllipsisVertical,
     faArrowUpRightFromSquare,
     faChevronLeft,
-    faChevronRight
+    faChevronRight,
+    faHeart
 )
 
 const app = createApp(App)
