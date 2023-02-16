@@ -1,7 +1,7 @@
 <template>
-  <div class="flex h-screen bg-blue-700">
-    <div class="flex space-x-10 m-auto bg-white w-[75rem] shadow-2xl shadow-slate-900 shadow-blue-900">
-      <img src="@/assets/loginpage.png" class="w-1/2 object-cover">
+  <div class="flex h-screen bg-blue-700" :style="'background-image: url(' + require(`@/assets/3.png`) +')'">
+    <div class="flex space-x-10 m-auto bg-white w-[75rem] shadow-2xl shadow-slate-400">
+      <img src="@/assets/2.png" class="w-1/2 object-cover">
       <div class="flex w-1/2 text-left p-8">
         <div class="m-auto">
           <h1 class="text-2xl">Welcome to Kidspreneurship</h1>

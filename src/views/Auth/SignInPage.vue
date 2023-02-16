@@ -1,7 +1,7 @@
 <template>
-  <div class="flex min-h-screen bg-blue-700">
+  <div class="flex min-h-screen bg-blue-700" :style="'background-image: url(' + require(`@/assets/3.png`) +')'">
     <div
-        class="flex space-x-10 m-auto bg-white w-[75rem] shadow-2xl shadow-slate-900 shadow-blue-900 transition-all ease-in-out duration-300">
+        class="flex space-x-10 m-auto bg-white w-[75rem] shadow-2xl shadow-slate-400 transition-all ease-in-out duration-300">
       <img src="@/assets/loginpage.png" class="w-2/3 object-comt">
       <div class="flex w-1/2 text-left p-8">
         <div class="m-auto w-full">
