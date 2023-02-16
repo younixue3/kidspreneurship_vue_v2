@@ -60,6 +60,10 @@
               Sudah memiliki akun ?
             </a>
             <button @click="signup" class="col-start-1 p-1 my-4 text-white text-lg rounded-lg bg-blue-700 hover:bg-amber-400 transition ease-in-out duration-150">Daftar</button>
+            <router-link to="/"
+                         class="p-1 my-4 text-white text-lg rounded-lg bg-white border-blue-700 hover:bg-amber-400 transition ease-in-out duration-150">
+              Kembali
+            </router-link>
           </div>
         </div>
       </div>

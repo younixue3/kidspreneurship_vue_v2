@@ -8,16 +8,16 @@
     <div class="mt-10 lg:mt-0">
       <h4 class="text-left text-xl lg:text-2xl font-bold uppercase mb-4">Related Links</h4>
       <ol class="text-left text-sm lg:text-base px-4">
-        <li>Company Website</li>
+        <li><a href="http://hbics.sch.id/">Company Website</a></li>
       </ol>
     </div>
     <div class="mt-5 lg:mt-0">
       <h4 class="text-left text-xl lg:text-2xl font-bold uppercase mb-4">Social Media</h4>
       <ol class="text-left text-sm lg:text-base px-4">
-        <li>Facebook</li>
-        <li>Instagram</li>
-        <li>Youtube</li>
-        <li>LinkedIn</li>
+        <li><a href="https://web.facebook.com/HBICS">Facebook</a></li>
+        <li><a href="https://www.instagram.com/harapanbangsa_balikpapan/">Instagram</a></li>
+        <li><a href="https://www.youtube.com/c/HappyHolyKidsHBICSBalikpapan">Youtube</a></li>
+        <li><a href="https://www.linkedin.com/company/ytcb/mycompany/">LinkedIn</a></li>
       </ol>
     </div>
   </div>

@@ -1,16 +1,20 @@
 <template>
   <div class="fixed z-50 w-full">
     <div class="py-8 backdrop-blur-md bg-gray-900/80">
-      <div class="flex justify-between">
-        <div class="w-96 hidden lg:inline text-white text-2xl font-bold text-center">Kidspreneurship</div>
-        <div class="grid grid-cols-3 gap-4 lg:w-96 text-white m-auto lg:mr-auto">
+      <div class="flex justify-between px-10">
+        <div class="w-96 hidden lg:flex justify-center space-x-2 text-white text-2xl font-bold text-center">
+          <img class="my-auto h-7" src="@/assets/hbicsputih.png">
+          <img class="my-auto h-9" src="@/assets/epik2k23.png">
+          <div class="my-auto pl-5 text-lg">Kidspreneurship</div>
+        </div>
+        <div class="grid grid-cols-3 gap-4 shrink lg:w-96 text-white m-auto lg:mr-auto">
           <router-link to="/">Home</router-link>
 <!--          <div @mouseover="openModal('virtualexpo')">Virtual Expo</div>-->
           <router-link to="/tentang">Tentang</router-link>
           <div @mouseover="openModal('publikasi')">Publikasi</div>
         </div>
-        <div class="w-52 hidden lg:inline">
-          <div v-if="!$store.state.auth.refresh" class="grid grid-cols-2 gap-3">
+        <div class="w-96 hidden lg:flex justify-end">
+          <div v-if="!$store.state.auth.refresh" class="grid grid-cols-2 gap-3 w-52 h-5">
             <router-link to="/signin" class="bg-transparent border-white border-2 text-white rounded-md">
               Masuk
             </router-link>
@@ -18,7 +22,7 @@
               Daftar
             </router-link>
           </div>
-          <div v-if="$store.state.auth.refresh" class="grid grid-cols-2 gap-3">
+          <div v-if="$store.state.auth.refresh" class="grid grid-cols-2 gap-3 w-52 h-5">
             <router-link v-if="!$store.state.profile.is_staff" to="/profile" class="bg-transparent border-white border-2 text-white rounded-md">
               Profile
             </router-link>

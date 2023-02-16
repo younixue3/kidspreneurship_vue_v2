@@ -1,11 +1,26 @@
 <template>
   <div @click="closeModal">
-    <div class="overflow-hidden w-full h-[40rem] lg:h-[52rem]">
+    <div class="overflow-hidden w-full relative h-[40rem] lg:h-[52rem] z-0">
       <HeroCardComponent></HeroCardComponent>
     </div>
-    <div>
-      <h1 class="text-4xl lg:text-5xl text-yellow-500 font-bold">Kids Preneurship</h1>
-      <div class="px-5 lg:px-20 text-white font-semibold text-sm lg:text-lg mt-5">Kidspreneurship merupakan event tahunan Sekolah Harapan Bangsa Balikpapan. Kidsprenurship sendiri lahir karena keprihatinan sekolah akan rendahnya angka wiraswasta di Indonesia di tahun 2013. Untuk itu Sekolah Harapan Bangsa Balikpapan mengadakan event Kidspreneurship pertama kali di tahun 2013 bagi siswa-siswi SD Harapan Bangsa Balikpapan, dan inilah yang menjadi latar belakang dari nama Kidsprenurship. Dengan hadirnya Kidspreneurship, diharapkan mampu mengasah kemampuan wirausaha serta kreatifitas anak-anak sejak dini. Sehingga dapat mempersiapkan generasi yang memiliki kemampuan dalam wirausaha dan meningkatkan angka wirausaha di Indonesia nantinya.
+    <div class="-mt-96 lg:-mt-[40rem] w-full relative z-40 mb-10">
+      <div class="flex">
+        <img class=" w-52 lg:w-[40rem] m-auto" src="@/assets/epik2k23.png">
+      </div>
+      <div class="flex mt-10">
+        <div class="w-60 lg:h-[30rem] lg:w-[35rem] m-auto bg-white rounded-lg p-5">
+          <div class=" w-full h-full bg-gray-900 flex">
+            <video class="h-full m-auto" controls>
+              <source src="@/assets/videokp.mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <h1 class="text-3xl m-auto w-[30rem] text-center rounded-lg lg:text-6xl font-bold bg-amber-400 text-blue-800 mt-10 pb-2 pt-1">Coming Soon</h1>
+    </div>
+    <div class="mt-20 lg:mt-52">
+      <h1 class="text-4xl lg:text-5xl text-yellow-500 font-bold">Kidspreneurship</h1>
+      <div class="px-5 lg:px-20 text-white font-semibold text-sm lg:text-lg mt-5"><a class="text-sky-400" href="#">Kidspreneurship</a> merupakan event tahunan <a class="text-sky-400" href="https://hbics.sch.id/">Sekolah Harapan Bangsa Balikpapan</a>. Kidsprenurship sendiri lahir karena keprihatinan sekolah akan rendahnya angka wiraswasta di Indonesia di tahun 2013. Untuk itu <a class="text-sky-400" href="https://hbics.sch.id/">Sekolah Harapan Bangsa Balikpapan</a> mengadakan event <a class="text-sky-400" href="#">Kidspreneurship</a> pertama kali di tahun 2013 bagi siswa-siswi SD Harapan Bangsa Balikpapan, dan inilah yang menjadi latar belakang dari nama Kidsprenurship. Dengan hadirnya <a class="text-sky-400" href="#">Kidspreneurship</a>, diharapkan mampu mengasah kemampuan wirausaha serta kreatifitas anak-anak sejak dini. Sehingga dapat mempersiapkan generasi yang memiliki kemampuan dalam wirausaha dan meningkatkan angka wirausaha di Indonesia nantinya.
       </div>
     </div>
     <div class="my-14 lg:my-40 overflow-hidden flex relative">
