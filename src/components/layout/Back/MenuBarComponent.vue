@@ -41,6 +41,12 @@
               </div>
               <div class="text-sm m-auto w-full">Galeri</div>
             </router-link>
+            <router-link to="/dashboard/publikasi/testimoni" class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
+              <div class="flex">
+                <FontAwesomeIcon class="m-auto" icon="fa-solid fa-images" />
+              </div>
+              <div class="text-sm m-auto w-full">Testimoni</div>
+            </router-link>
           </div>
           <div class="flex flex-col space-y-3">
             <div class="text-left text-xs font-thin text-gray-400">Event</div>
@@ -50,7 +56,18 @@
               </div>
               <div class="text-sm m-auto w-full">Event</div>
             </router-link>
-
+            <router-link to="/dashboard/event/juri" class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
+              <div class="flex">
+                <FontAwesomeIcon class="m-auto" icon="fa-solid fa-images" />
+              </div>
+              <div class="text-sm m-auto w-full">Juri</div>
+            </router-link>
+            <router-link to="/dashboard/event/sponsor" class="hover:bg-gray-500 px-2 rounded-lg flex justify-between space-x-3 text-left">
+              <div class="flex">
+                <FontAwesomeIcon class="m-auto" icon="fa-solid fa-images" />
+              </div>
+              <div class="text-sm m-auto w-full">Sponsor</div>
+            </router-link>
           </div>
           <div class="flex flex-col space-y-3">
             <div class="text-left text-xs font-thin text-gray-400">Admin</div>

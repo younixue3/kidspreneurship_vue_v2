@@ -23,6 +23,9 @@ import BackEventPage from "@/views/Back/Event/BackEventPage";
 import PesertaPage from "@/views/Back/Admin/PesertaPage";
 import TentangPage from "@/views/Front/TentangPage";
 import ProfilePage from "@/views/Front/Auth/ProfilePage";
+import BackTestimoniPage from "@/views/Back/Publikasi/Testimoni/BackTestimoniPage";
+import BackJuriPage from "@/views/Back/Publikasi/Juri/BackJuriPage";
+import BackSponsorPage from "@/views/Back/Event/BackSponsorPage";
 
 const routes = [
   {
@@ -107,6 +110,10 @@ const routes = [
           {
             path: 'galeri',
             component: BackGaleriPage
+          },
+          {
+            path: 'testimoni',
+            component: BackTestimoniPage
           }
         ]
       },
@@ -117,6 +124,14 @@ const routes = [
           {
             path: '',
             component: BackEventPage
+          },
+          {
+            path: 'sponsor',
+            component: BackSponsorPage
+          },
+          {
+            path: 'juri',
+            component: BackJuriPage
           }
         ]
       },

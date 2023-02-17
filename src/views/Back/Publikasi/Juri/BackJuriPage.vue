@@ -11,17 +11,17 @@
     </div>
   </div>
   <div class="flex flex-col space-y-5">
-    <div class="bg-gray-600 flex p-2 px-3" v-for="(item, index, key) in this.testimoni" :key=key>
+    <div class="bg-gray-600 flex p-2 px-3" v-for="(item, index, key) in this.juri" :key=key>
       <div class="flex w-full p-5 space-x-8">
         <img class="bg-white h-60 w-1/3 object-cover" :src="item.image">
         <div class="w-2/3 text-left">
           <h1 class="text-2xl mb-10">{{item.nama}}</h1>
-          <p class="w-96 h-40 overflow-hidden" v-html="item.testimoni"></p>
+          <p class="w-96 h-40 overflow-hidden" v-html="item.deskripsi"></p>
         </div>
       </div>
       <div>
         <button
-            @click="menuFormSide(item.id,item.nama, item.testimoni, item.image)">
+            @click="menuFormSide(item.id,item.nama, item.deskripsi, item.image, item.video)">
           <font-awesome-icon class="text-xl" icon="fa-solid fa-ellipsis"/>
         </button>
       </div>
@@ -34,13 +34,13 @@ import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import axios from "axios";
 
 export default {
-  name: "BackTestimoniPage",
+  name: "BackJuriPage",
   components: {
     FontAwesomeIcon
   },
   data() {
     return {
-      testimoni: [],
+      juri: [],
       prevpagi: null,
       nextpagi: null
     }
@@ -51,14 +51,14 @@ export default {
           this.$store.state.auth.access = resp.data.access
         })
         .finally(() => {
-          this.gettestimoni()
+          this.getjuri()
         })
   },
   methods: {
     prevPagi: function () {
       axios.get(this.prevpagi, {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
           .then(resp => {
-            this.testimoni = resp.data.results
+            this.juri = resp.data.results
             this.nextpagi = resp.data.next
             this.prevpagi = resp.data.previous
           })
@@ -66,15 +66,15 @@ export default {
     nextPagi: function () {
       axios.get(this.nextpagi, {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
           .then(resp => {
-            this.testimoni = resp.data.results
+            this.juri = resp.data.results
             this.nextpagi = resp.data.next
             this.prevpagi = resp.data.previous
           })
     },
-    gettestimoni: function () {
-      axios.get(process.env.VUE_APP_BASE_URL + 'api/publikasi/testimoni/', {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
+    getjuri: function () {
+      axios.get(process.env.VUE_APP_BASE_URL + 'api/event/juri/', {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
           .then(resp => {
-            this.testimoni = resp.data.results
+            this.juri = resp.data.results
             this.nextpagi = resp.data.next
             this.prevpagi = resp.data.previous
           })
@@ -82,7 +82,7 @@ export default {
     addMenuFormSide: function () {
       this.$store.commit('pushFormSide',
           {
-            url: 'api/publikasi/testimoni/',
+            url: 'api/event/juri/',
             methode: 'post',
             data: {
               nama: {
@@ -90,24 +90,29 @@ export default {
                 type: 'text',
                 name: 'nama'
               },
-              testimoni: {
+              deskripsi: {
                 content: null,
                 type: 'richtext',
-                name: 'testimoni'
+                name: 'deskripsi'
               },
               image: {
                 content: null,
                 type: 'file',
                 name: 'image'
+              },
+              video: {
+                content: null,
+                type: 'video',
+                name: 'video'
               }
             }
           }
       )
     },
-    menuFormSide: function (id, nama, testimoni, image) {
+    menuFormSide: function (id, nama, deskripsi, image, video) {
       this.$store.commit('pushFormSide',
           {
-            url: 'api/publikasi/testimoni/' + id + '/',
+            url: 'api/event/juri/' + id + '/',
             methode: 'put',
             data: {
               nama: {
@@ -115,15 +120,20 @@ export default {
                 type: 'text',
                 name: 'nama'
               },
-              testimoni: {
-                content: testimoni,
+              deskripsi: {
+                content: deskripsi,
                 type: 'richtext',
-                name: 'isi'
+                name: 'deskripsi'
               },
               image: {
                 content: image,
                 type: 'file',
                 name: 'image'
+              },
+              video: {
+                content: video,
+                type: 'video',
+                name: 'video'
               }
             }
           }
