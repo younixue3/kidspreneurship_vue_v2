@@ -8,16 +8,17 @@
     <div class="mt-10 lg:mt-0">
       <h4 class="text-left text-xl lg:text-2xl font-bold uppercase mb-4">Related Links</h4>
       <ol class="text-left text-sm lg:text-base px-4">
-        <li><a href="http://hbics.sch.id/">Company Website</a></li>
+        <li><a href="http://hbics.sch.id/">Harapan Bangsa Integreted Christian School</a></li>
       </ol>
     </div>
     <div class="mt-5 lg:mt-0">
       <h4 class="text-left text-xl lg:text-2xl font-bold uppercase mb-4">Social Media</h4>
-      <ol class="text-left text-sm lg:text-base px-4">
-        <li><a href="https://web.facebook.com/HBICS">Facebook</a></li>
-        <li><a href="https://www.instagram.com/harapanbangsa_balikpapan/">Instagram</a></li>
-        <li><a href="https://www.youtube.com/c/HappyHolyKidsHBICSBalikpapan">Youtube</a></li>
-        <li><a href="https://www.linkedin.com/company/ytcb/mycompany/">LinkedIn</a></li>
+      <ol class="list-none text-left text-sm lg:text-base px-4">
+        <li class="list-none"><FontAwesomeIcon class="w-5 mr-0.5" icon="fa-brands fa-facebook"/><a href="https://web.facebook.com/HBICS">Facebook</a></li>
+        <li class="list-none"><FontAwesomeIcon class="w-5 mr-0.5" icon="fa-brands fa-instagram"/><a href="https://www.instagram.com/harapanbangsa_balikpapan/">Instagram Harapan Bangsa Balikpapan</a></li>
+        <li class="list-none"><FontAwesomeIcon class="w-5 mr-0.5" icon="fa-brands fa-instagram"/><a href="https://www.instagram.com/harapanbangsa_balikpapan/">Instagram Kidspreneurship</a></li>
+        <li class="list-none"><FontAwesomeIcon class="w-5 mr-0.5" icon="fa-brands fa-youtube"/><a href="https://www.youtube.com/c/HappyHolyKidsHBICSBalikpapan">Youtube</a></li>
+        <li class="list-none"><FontAwesomeIcon class="w-5 mr-0.5" icon="fa-brands fa-linkedin"/><a href="https://www.linkedin.com/company/ytcb/mycompany/">LinkedIn</a></li>
       </ol>
     </div>
   </div>

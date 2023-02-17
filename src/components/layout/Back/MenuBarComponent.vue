@@ -93,12 +93,12 @@
         <slot name="content"></slot>
       </div>
     </div>
-    <div class="flex flex-col divide-y divide-gray-700 w-1/6">
+    <div class="flex flex-col divide-y divide-gray-700 w-2/6">
       <div class="flex m-auto space-x-3 px-5 py-3 h-20">
         <img class="h-10 w-10 bg-gray-300 rounded-full m-auto p-0.5 object-contain" src="@/assets/logo_colorfull.png">
         <div class="m-auto">{{$store.state.profile ? $store.state.profile.first_name + ' ' + $store.state.profile.last_name : 'Anonymous'}}</div>
       </div>
-      <div class="flex flex-col space-y-3 py-5 px-3 h-full text-left">
+      <div class="flex flex-col space-y-3 py-5 px-3 h-full w=full text-left">
         <FormSide />
       </div>
     </div>

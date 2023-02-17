@@ -23,9 +23,9 @@
                   class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1"
                   v-model="form.password" type="password">
             </div>
-            <a class="col-start-1 text-xs font-medium text-blue-600 col-span-3 after:content-['_↗']" href="#">
+            <router-link to="/signup" class="col-start-1 text-xs font-medium text-blue-600 col-span-3 after:content-['_↗']">
               Belum memiliki akun ?
-            </a>
+            </router-link>
             <button @click="SignIn"
                     class="col-start-1 p-1 my-4 text-white text-lg rounded-lg bg-blue-700 hover:bg-amber-400 transition ease-in-out duration-150">
               Masuk

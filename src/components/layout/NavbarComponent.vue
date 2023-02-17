@@ -1,11 +1,11 @@
 <template>
   <div class="fixed z-50 w-full">
-    <div class="py-8 backdrop-blur-md bg-gray-900/80">
+    <div class="py-8 backdrop-blur-md bg-gray-700/70">
       <div class="flex justify-between px-10">
         <div class="w-96 hidden lg:flex justify-center space-x-2 text-white text-2xl font-bold text-center">
           <img class="my-auto h-7" src="@/assets/hbicsputih.png">
-          <img class="my-auto h-9" src="@/assets/epik2k23.png">
-          <div class="my-auto pl-5 text-lg">Kidspreneurship</div>
+          <img class="my-auto h-12" src="@/assets/logokp.png">
+          <div class="my-auto pl-2 text-lg">Kidspreneurship</div>
         </div>
         <div class="grid grid-cols-3 gap-4 shrink lg:w-96 text-white m-auto lg:mr-auto">
           <router-link to="/">Home</router-link>

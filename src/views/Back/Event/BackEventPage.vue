@@ -8,8 +8,8 @@
         <img class="bg-white h-60 w-1/3 object-cover" :src="item.logo">
         <div class="w-2/3 text-left">
           <h1 class="text-2xl mb-10">{{item.nama}}</h1>
-          <p class="w-96 h-32" v-html="item.deskripsi"></p>
-          <div>Nominal : Rp. {{$filters.formatNumber(item.nominal)}}</div>
+          <p class="w-96 h-24 overflow-hidden" v-html="item.deskripsi"></p>
+          <div class="mt-5">Nominal : Rp. {{$filters.formatNumber(item.nominal)}}</div>
         </div>
       </div>
       <div>

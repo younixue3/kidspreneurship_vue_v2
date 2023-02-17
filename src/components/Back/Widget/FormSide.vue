@@ -1,10 +1,10 @@
 <template>
  <div class="text-black" v-if="$store.state.formside.url">
-   <div v-for="(item, index, key) in this.$store.state.formside.data" :key="key">
+   <div class="w-full" v-for="(item, index, key) in this.$store.state.formside.data" :key="key">
      <label v-if="item.type != 'hidden'" class="uppercase text-white">{{ item.name }}</label>
      <div class="my-2">
-       <input v-if="item.type == 'text' || item.type == 'number'" :type="item.type" v-model="item.content">
-       <img @click="openModal(item.content)" v-if="item.type == 'image'" :src="item.content">
+       <input class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1" v-if="item.type == 'text' || item.type == 'number'" :type="item.type" v-model="item.content">
+       <img class="w-full" @click="openModal(item.content)" v-if="item.type == 'image'" :src="item.content">
        <Editor v-if="item.type == 'richtext'"
            api-key="myd6mneo80f63ct1oaplcds41f0tlhaveajnuxiiaenjdgol"
            :init="{
@@ -18,7 +18,7 @@
                  bullist numlist | removeformat'
               }"
            v-model="item.content" :value="item.content" />
-       <div v-if="item.type == 'images'">
+       <div class="w-full" v-if="item.type == 'images'">
          <InputMultiplePictureComponent name="images" @file="insertFoto(index)" />
          <div class="grid grid-cols-3 gap-2 h-60 overflow-auto scrollbarhidden">
            <div tabindex="1" v-for="(item,index) in item.content" v-bind:key="index"
@@ -31,13 +31,18 @@
            </div>
          </div>
        </div>
-       <input class="text-white w-full" v-if="item.type == 'file'" type="file" @change="imageInput(index)">
+       <input class="block w-full text-sm text-white
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-full file:border-0
+      file:text-sm file:font-semibold
+      file:bg-violet-50 file:text-violet-700
+      hover:file:bg-violet-100" v-if="item.type == 'file'" type="file" @change="imageInput(index)">
      </div>
    </div>
    <div class="mt-10 flex space-x-5" v-if="$store.state.formside.for != 'transaksi'">
-     <button @click="submit" class="bg-white text-black px-1" type="submit">Submit</button>
-     <button @click="$store.commit('removeFormSide')" class="bg-white text-black px-1">Cancel</button>
-     <button @click="remove" class="bg-white text-black px-1">Delete</button>
+     <button @click="submit" class="p-1 px-3 text-white text-lg rounded-lg bg-blue-700 hover:bg-blue-800 transition ease-in-out duration-150" type="submit">Submit</button>
+     <button @click="$store.commit('removeFormSide')" class="p-1 px-3 text-black text-lg rounded-lg bg-white hover:bg-gray-200 transition ease-in-out duration-150">Cancel</button>
+     <button @click="remove" class="p-1 px-3 text-white text-lg rounded-lg bg-red-700 hover:bg-red-800 transition ease-in-out duration-150">Delete</button>
    </div>
    <div class="mt-10 flex space-x-5" v-if="$store.state.formside.for == 'transaksi'">
      <button @click="submit" class="bg-white text-black px-1" type="submit">Verifikasi</button>

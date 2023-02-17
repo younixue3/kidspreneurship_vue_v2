@@ -56,9 +56,9 @@
               <label class="pl-1 text-xs text-gray-500">Konfirmasi Password</label>
               <input class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1" v-model="form.konfirmasi_password" type="password">
             </div>
-            <a class="col-start-1 text-xs font-medium text-blue-600 col-span-3 after:content-['_↗']" href="#">
+            <router-link to="/signin" class="col-start-1 text-xs font-medium text-blue-600 col-span-3 after:content-['_↗']">
               Sudah memiliki akun ?
-            </a>
+            </router-link>
             <button @click="signup" class="col-start-1 p-1 my-4 text-white text-lg rounded-lg bg-blue-700 hover:bg-amber-400 transition ease-in-out duration-150">Daftar</button>
             <router-link to="/"
                          class="p-1 my-4 text-blue-700 text-lg rounded-lg bg-white px-2 border-blue-700 transition ease-in-out duration-150">

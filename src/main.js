@@ -34,8 +34,16 @@ import {
     faArrowUpRightFromSquare,
     faChevronLeft,
     faChevronRight,
-    faHeart
+    faHeart,
 } from '@fortawesome/free-solid-svg-icons'
+
+import {
+    faFacebook,
+    faInstagram,
+    faYoutube,
+    faLinkedin
+
+} from '@fortawesome/free-brands-svg-icons'
 
 /* import font awesome icon component */
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
@@ -67,7 +75,11 @@ library.add(
     faArrowUpRightFromSquare,
     faChevronLeft,
     faChevronRight,
-    faHeart
+    faHeart,
+    faFacebook,
+    faInstagram,
+    faYoutube,
+    faLinkedin
 )
 
 const app = createApp(App)
