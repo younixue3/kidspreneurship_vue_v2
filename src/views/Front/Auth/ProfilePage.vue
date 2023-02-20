@@ -5,9 +5,9 @@
       <img src="@/assets/2.png" class="w-2/3 object-cover">
       <div class="flex w-1/2 text-left p-8">
         <div class="m-auto w-full">
-          <h1 class="text-2xl">Welcome to
+          <h1 v-if="!$store.state.profile.transaksi" class="text-2xl">Welcome to
             Kidspreneurship</h1>
-          <div v-if="$store.state.profile.transaksi" class="font-light text-sm">Tunjukkan
+          <div v-if="!$store.state.profile.transaksi" class="font-light text-sm">Tunjukkan
             Kreativitasmu, Daftar dan Ikuti Lomba Anak Sekolahan yang Keren dan Menyenangkan!
           </div>
           <div v-if="$store.state.profile ? $store.state.profile.transaksi : false"
@@ -43,7 +43,7 @@
             </div>
             <button v-if="$store.state.profile.transaksi.status == 'pembayaran'" @click="inputPembayaran"
                     class="col-start-1 p-1 my-4 text-white text-lg rounded-lg bg-blue-700 hover:bg-amber-400 transition ease-in-out duration-150">
-              Pembayaran
+              Submit
             </button>
             <router-link to="/"
                          class="p-1 my-4 text-blue-700 text-lg rounded-lg bg-white px-2 border-blue-700 transition ease-in-out duration-150">
@@ -61,24 +61,35 @@
               </select>
             </div>
             <div v-if="formAnggota.event" class="col-span-2 col-start-1">
-              <label class="pl-1 text-xs text-gray-500">Nama Kelompok</label>
+              <label class="pl-1 text-xs text-gray-500">Nama {{ eventchoose.id == 1 ? 'Kelompok' : 'Peserta' }}</label>
               <input
                   class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1"
                   v-model="formAnggota.nama" type="email">
             </div>
-            <div v-if="formAnggota.event" class="col-start-1 col-span-3 mt-5 font-bold">Anggota Kelompok</div>
-            <div v-if="formAnggota.event" class="col-span-2 col-start-1" v-for="(item, index, key) in this.formAnggota.anggota" :key="key">
+            <div v-if="formAnggota.event" class="col-span-2 col-start-1">
+              <label class="pl-1 text-xs text-gray-500">Kategori Lomba</label>
+              <select
+                  class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none uppercase rounded-lg px-1 py-1"
+                  v-model="formAnggota.kategori" @change="kategoriChoose">
+                <option v-for="(item, index, key) in this.kategori" :key="key" :value="item.id">{{ item.nama }}</option>
+              </select>
+            </div>
+            <div v-if="eventchoose.id == 1" class="col-start-1 col-span-3 mt-5 font-bold">Anggota Kelompok</div>
+            <div v-if="eventchoose.id == 1" class="col-span-2 col-start-1"
+                 v-for="(item, index, key) in this.formAnggota.anggota" :key="key">
               <label class="pl-1 text-xs text-gray-500">Nama Lengkap Anggota</label>
               <input
                   class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1"
                   v-model="item.nama" type="email">
             </div>
-            <button v-if="formAnggota.event" @click="addAnggota" class="bg-emerald-500 rounded-lg text-sm text-white col-start-1">Tambah
+            <button v-if="eventchoose.id == 1" @click="addAnggota"
+                    class="bg-emerald-500 rounded-lg text-sm text-white col-start-1">Tambah
               Anggota
             </button>
-            <button v-if="formAnggota.event" @click="hapusAnggota" class="bg-rose-500 rounded-lg text-sm text-white">Hapus Anggota
+            <button v-if="eventchoose.id == 1" @click="hapusAnggota" class="bg-rose-500 rounded-lg text-sm text-white">
+              Hapus Anggota
             </button>
-            <button v-if="formAnggota.event" @click="daftarAnggota"
+            <button v-if="eventchoose.id" @click="daftarAnggota"
                     class="col-start-1 p-1 my-4 text-white text-lg rounded-lg bg-blue-700 hover:bg-amber-400 transition ease-in-out duration-150">
               Masuk
             </button>
@@ -97,6 +108,7 @@
 
 import SliderComponent from "@/components/Front/SliderComponent";
 import axios from "axios";
+
 export default {
   name: "Signin",
   data() {
@@ -104,6 +116,7 @@ export default {
       formAnggota: {
         nama: null,
         event: null,
+        kategori: null,
         total_nominal: null,
         anggota: [
           {nama: null},
@@ -115,6 +128,8 @@ export default {
       },
       event: [],
       eventchoose: {},
+      kategorichoose: {},
+      kategori: [],
     }
   },
   components: {
@@ -142,10 +157,22 @@ export default {
             this.event = resp.data.results
           })
     },
+    kategoriChoose: function () {
+      axios.get(process.env.VUE_APP_BASE_URL + 'api/event/kategori/' + this.formAnggota.kategori + '/', {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
+          .then(resp => {
+            this.kategorichoose = resp.data
+          })
+    },
     eventChoose: function () {
       axios.get(process.env.VUE_APP_BASE_URL + 'api/event/event/' + this.formAnggota.event + '/', {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
           .then(resp => {
             this.eventchoose = resp.data
+          })
+          .finally(() => {
+            axios.post(process.env.VUE_APP_BASE_URL + 'api/event/kategori/' + this.formAnggota.event + '/getKategori/', {jenjang: this.$store.state.profile.jenjang}, {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
+                .then(resp => {
+                  this.kategori = resp.data
+                })
           })
     },
     addAnggota: function () {
@@ -163,12 +190,17 @@ export default {
           alert("Kuota anggota mencapai batas minimal")
         } else {
           this.formAnggota.anggota.splice(0, 1)
-          console.log(this.formAnggota.anggota, this.formAnggota.anggota.length + 1 )
+          console.log(this.formAnggota.anggota, this.formAnggota.anggota.length + 1)
         }
       }
     },
     daftarAnggota: function () {
-      this.formAnggota.total_nominal = this.eventchoose.nominal
+      this.formAnggota.total_nominal = this.kategorichoose.nominal
+      if (this.eventchoose.id != 1) {
+        this.formAnggota.anggota = [
+          {nama: this.formAnggota.nama}
+        ]
+      }
       axios.post(process.env.VUE_APP_BASE_URL + 'api/event/group-event/', this.formAnggota, {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
           .then(resp => {
             this.$store.state.profileEvent = resp.data

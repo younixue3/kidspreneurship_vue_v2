@@ -35,6 +35,7 @@ import {
     faChevronLeft,
     faChevronRight,
     faHeart,
+    faTrashCan,
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -79,7 +80,8 @@ library.add(
     faFacebook,
     faInstagram,
     faYoutube,
-    faLinkedin
+    faLinkedin,
+    faTrashCan,
 )
 
 const app = createApp(App)

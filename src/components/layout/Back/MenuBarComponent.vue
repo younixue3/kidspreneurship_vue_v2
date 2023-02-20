@@ -115,7 +115,7 @@
         <img class="h-10 w-10 bg-gray-300 rounded-full m-auto p-0.5 object-contain" src="@/assets/logo_colorfull.png">
         <div class="m-auto">{{$store.state.profile ? $store.state.profile.first_name + ' ' + $store.state.profile.last_name : 'Anonymous'}}</div>
       </div>
-      <div class="flex flex-col space-y-3 py-5 px-3 h-full w=full text-left">
+      <div class="flex flex-col space-y-3 py-5 px-3 h-full w-full text-left overflow-auto">
         <FormSide />
       </div>
     </div>

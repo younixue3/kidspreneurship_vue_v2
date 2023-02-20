@@ -2,6 +2,58 @@
   <div class="text-black" v-if="$store.state.formside.url">
     <div class="w-full" v-for="(item, index, key) in this.$store.state.formside.data" :key="key">
       <label v-if="item.type != 'hidden'" class="uppercase text-white">{{ item.name }}</label>
+      <div class="text-white p-5" v-if="item.type == 'kategori'">
+        <div>
+          <label class="block">Nama</label>
+          <input
+              class="w-full border border-gray-400 mt-2 text-black focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1"
+              v-model="kategori.nama">
+        </div>
+        <div>
+          <label class="block">Nominal</label>
+          <input
+              class="w-full border border-gray-400 mt-2 text-black focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1"
+              type="number"
+              v-model="kategori.nominal">
+        </div>
+        <div>
+          <label class="block">Jenjang</label>
+          <select class="w-full border border-gray-400 mt-2 text-black focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1"
+                  type="number"
+                  v-model="kategori.jenjang">
+            <option>sd</option>
+            <option>smp</option>
+            <option>sma</option>
+            <option>tk</option>
+          </select>
+        </div>
+        <div class="mt-4">
+          <button @click="addKategori($store.state.formside.id)"
+                  class="p-1 px-3 text-white text-lg rounded-lg bg-blue-700 hover:bg-blue-800 transition ease-in-out duration-150">
+            Add
+          </button>
+        </div>
+        <div class="my-5">
+          <table class="w-full table-auto bg-white rounded-lg">
+            <thead class="text-center bg-gray-500">
+            <tr>
+              <td class="rounded-tl-lg">Nama</td>
+              <td>Nominal</td>
+              <td>Jenjang</td>
+              <td class="w-10 rounded-tr-lg">#</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-black" v-for="(item, index, key) in this.$store.state.formside.data.kategori.content" :key="key">
+              <td>{{ item.nama }}</td>
+              <td>{{ item.nominal }}</td>
+              <td>{{ item.jenjang }}</td>
+              <td><button @click="deleteKategori(item.id)"><FontAwesomeIcon class="text-red-500" icon="fa-solid fa-trash-can" /></button></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
       <div class="my-2">
         <input
             class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1"
@@ -87,11 +139,45 @@ export default {
     FontAwesomeIcon
   },
   data() {
-    return {}
+    return {
+      kategori: {
+        nama: null,
+        nominal: null,
+        jenjang: null
+      }
+    }
   },
   mounted() {
   },
   methods: {
+    addKategori: function (id) {
+      axios.post(process.env.VUE_APP_BASE_URL + 'api/event/kategori/' + id + '/addKategori/', this.kategori,
+          {
+                headers: {
+                  'Authorization': `Bearer   ${this.$store.state.auth.access}`
+                }
+          })
+          .then(resp => {
+            console.log(resp)
+          })
+          .finally(() => {
+            this.$router.go()
+          })
+    },
+    deleteKategori: function (id) {
+      axios.delete(process.env.VUE_APP_BASE_URL + 'api/event/kategori/' + id + '/',
+          {
+            headers: {
+              'Authorization': `Bearer   ${this.$store.state.auth.access}`
+            }
+          })
+          .then(resp => {
+            console.log(resp)
+          })
+          .finally(() => {
+            this.$router.go()
+          })
+    },
     insertFoto: function (index) {
       this.$store.state.formside.data[index].upload = event.target.files
     },
@@ -137,6 +223,7 @@ export default {
 
       }
       this.$store.commit('removeFormSide')
+      // this.$router.go()
     },
     remove: function () {
       axios.delete(process.env.VUE_APP_BASE_URL + this.$store.state.formside.url, {
@@ -147,6 +234,7 @@ export default {
           .then(resp => {
           })
       this.$store.commit('removeFormSide')
+      this.$router.go()
     },
     imageInput: function (index) {
       this.$store.state.formside.data[index].content = event.target.files[0]

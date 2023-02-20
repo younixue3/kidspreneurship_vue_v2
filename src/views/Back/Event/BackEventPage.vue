@@ -9,12 +9,11 @@
         <div class="w-2/3 text-left">
           <h1 class="text-2xl mb-10">{{item.nama}}</h1>
           <p class="w-96 h-24 overflow-hidden" v-html="item.deskripsi"></p>
-          <div class="mt-5">Nominal : Rp. {{$filters.formatNumber(item.nominal)}}</div>
         </div>
       </div>
       <div>
         <button
-            @click="menuFormSide(item.id,item.nama, item.deskripsi, item.logo, item.nominal)">
+            @click="menuFormSide(item.id,item.nama, item.deskripsi, item.logo, item.kategori)">
           <font-awesome-icon class="text-xl" icon="fa-solid fa-ellipsis"/>
         </button>
       </div>
@@ -50,6 +49,7 @@ export default {
       axios.get(process.env.VUE_APP_BASE_URL + 'api/event/event/', {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
           .then(resp => {
             this.event = resp.data.results
+            console.log(this.event)
           })
     },
     addMenuFormSide: function () {
@@ -73,20 +73,16 @@ export default {
                 type: 'file',
                 name: 'logo'
               },
-              nominal: {
-                content: null,
-                type: 'number',
-                name: 'nominal'
-              }
             }
           }
       )
     },
-    menuFormSide: function (id, nama, deskripsi, logo, nominal) {
+    menuFormSide: function (id, nama, deskripsi, logo, kategori) {
       this.$store.commit('pushFormSide',
           {
             url: 'api/event/event/' + id + '/',
             methode: 'put',
+            id: id,
             data: {
               nama: {
                 content: nama,
@@ -103,10 +99,10 @@ export default {
                 type: 'file',
                 name: 'logo'
               },
-              nominal: {
-                content: nominal,
-                type: 'number',
-                name: 'nominal'
+              kategori: {
+                content: kategori,
+                type: 'kategori',
+                name: 'kategori'
               }
             }
           }

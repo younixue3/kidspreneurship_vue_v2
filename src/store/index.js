@@ -66,6 +66,7 @@ export default createStore({
     pushFormSide (state, data) {
       state.formside = {}
       state.formside = data
+      console.log(state.formside)
     },
     removeFormSide(state) {
       state.formside = {}
