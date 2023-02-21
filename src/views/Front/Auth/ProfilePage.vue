@@ -57,7 +57,7 @@
               <select
                   class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none uppercase rounded-lg px-1 py-1"
                   v-model="formAnggota.event" @change="eventChoose">
-                <option v-for="(item, index, key) in this.event" :key="key" :value="item.id">{{ item.nama }}</option>
+                <option v-for="(item, index, key) in this.event" :key="key" :value="item.id" :hidden="item.id == 1 ? $store.state.profile.jenjang == 'smp' || $store.state.profile.jenjang == 'sma' || $store.state.profile.jenjang == 'sd' ? false : true : $store.state.profile.jenjang == 'tk' || $store.state.profile.jenjang == 'sd' ? false : true ">{{ item.nama }}</option>
               </select>
             </div>
             <div v-if="formAnggota.event" class="col-span-2 col-start-1">
