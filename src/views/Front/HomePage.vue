@@ -8,7 +8,7 @@
         <img class=" w-52 lg:w-[40rem] m-auto" src="@/assets/epik2k23.png">
       </div>
       <div class="flex mt-10">
-        <div class="w-60 lg:h-[30rem] lg:w-[35rem] m-auto bg-white rounded-lg p-5">
+        <div class="lg:h-[30rem]  m-auto bg-white rounded-lg p-5">
           <div class=" w-full h-full bg-gray-900 flex">
             <video class="h-full m-auto" controls>
               <source src="@/assets/videokp.mp4">
