@@ -16,7 +16,7 @@
           </div>
         </div>
       </div>
-      <h1 class="text-3xl m-auto w-[30rem] text-center rounded-lg lg:text-6xl font-bold bg-amber-400 text-blue-800 mt-10 pb-2 pt-1">Coming Soon</h1>
+      <h1 class="text-3xl m-auto w-full text-center rounded-lg lg:text-6xl font-bold bg-amber-400 text-blue-800 mt-10 pb-2 pt-1">Coming Soon</h1>
     </div>
     <div class="mt-20 lg:mt-52">
       <h1 class="text-4xl lg:text-5xl text-yellow-500 font-bold">Kidspreneurship</h1>
