@@ -1,6 +1,6 @@
 <template>
   <div class="grid justify-items-center grid-cols-1 gap-5">
-    <div v-for="(item, key) in this.data" :key="key" class="flex h-full w-full p-5">
+    <div v-for="(item, key) in this.data" :key="key" class="flex h-full sm:w-96 w-full p-5">
       <div class="flex flex-col">
         <FontAwesomeIcon class="text-5xl text-white pb-3" :class="item.status ? 'text-yellow-500' : 'text-white'" icon="fa-solid fa-circle-check" />
         <div class="flex h-full w-full" v-if="key != this.data.length - 1">
