@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed z-50">
+  <div class="fixed z-50 w-full">
     <div class="py-8 backdrop-blur-md bg-gray-700/70">
       <div class="flex justify-between px-10">
         <div class="w-96 hidden lg:flex justify-center space-x-2 text-white text-2xl font-bold text-center">
