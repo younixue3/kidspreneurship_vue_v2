@@ -29,33 +29,39 @@ export default {
       data: [
         {
           status: false,
-          date: '22 Februari, 2023, 24 Maret, 2023',
+          date: '6 Maret, 2023, 3 April, 2023',
           title: 'Pendaftaran Akun Peserta',
           desc: 'Pendaftaran Akun untuk peserta dan melakukan validasi pembayaran'
         },
         {
           status: false,
-          date: '22 Februari, 2023 - 24 Maret, 2023',
+          date: '7 Maret, 2023 - 3 April, 2023',
           title: 'Submit Karya (Proposal, Pitchdesk)',
           desc: 'Peserta submit karyanya kepada Admin Kidspreneurship 2K23'
         },
         {
           status: false,
-          date: '27 Maret, 2023 - 1 April, 2023',
+          date: '3 April, 2023 - 7 April, 2023',
           title: 'Penjurian Seleksi Proposal',
           desc: 'Penjurian seleksi proposal yang telah di submit oleh peserta lomba'
         },
         {
           status: false,
-          date: '5 April, 2023',
+          date: '10 April, 2023',
           title: 'Pengumuman 10 besar tiap Kategori/Jenjang',
           desc: 'Pengumuman top 10 terbesar tiap Kategori/Jenjang'
         },
         {
           status: false,
-          date: '5 April, 2023 - 12 Mei, 2023',
+          date: '12 April, 2023 - 12 Mei, 2023',
           title: 'Coaching & Submit Karya Lanjutan (Mock up & Video)',
           desc: 'Sesi coaching dan Submit Mock Up Karya dan Video Karya lanjutan oleh peserta'
+        },
+        {
+          status: false,
+          date: '10 Mei, 2023',
+          title: 'Technical Meeting',
+          desc: 'Technical Meeting'
         },
         {
           status: false,

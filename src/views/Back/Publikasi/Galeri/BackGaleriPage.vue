@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="text-left">
     <button @click="addMenuFormSide" class="bg-emerald-500 px-2 text-white">Add</button>
   </div>
