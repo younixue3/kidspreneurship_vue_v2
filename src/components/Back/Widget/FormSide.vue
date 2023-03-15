@@ -206,14 +206,12 @@ export default {
               }
             })
             .then(resp => {
-
             })
 
       } else if (this.$store.state.formside.methode === 'put') {
         if (this.$store.state.formside.from == 'galeri') {
           this.$store.state.formside.url = this.$store.state.formside.url + 'updateGaleri/'
         }
-        console.log(process.env.VUE_APP_BASE_URL + this.$store.state.formside.url)
         axios.put(process.env.VUE_APP_BASE_URL + this.$store.state.formside.url,
             formData, {
               headers: {
@@ -221,11 +219,10 @@ export default {
               }
             })
             .then(resp => {
-              console.log(resp)
-              console.log('kontol')
             })
-      }
 
+      }
+      this.$store.commit('removeFormSide')
       // this.$router.go()
     },
     remove: function () {
