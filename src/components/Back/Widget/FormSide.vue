@@ -18,9 +18,10 @@
         </div>
         <div>
           <label class="block">Jenjang</label>
-          <select class="w-full border border-gray-400 mt-2 text-black focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1"
-                  type="number"
-                  v-model="kategori.jenjang">
+          <select
+              class="w-full border border-gray-400 mt-2 text-black focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1"
+              type="number"
+              v-model="kategori.jenjang">
             <option>sd</option>
             <option>smp</option>
             <option>sma</option>
@@ -44,11 +45,16 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="text-black" v-for="(item, index, key) in this.$store.state.formside.data.kategori.content" :key="key">
+            <tr class="text-black" v-for="(item, index, key) in this.$store.state.formside.data.kategori.content"
+                :key="key">
               <td>{{ item.nama }}</td>
               <td>{{ item.nominal }}</td>
               <td>{{ item.jenjang }}</td>
-              <td><button @click="deleteKategori(item.id)"><FontAwesomeIcon class="text-red-500" icon="fa-solid fa-trash-can" /></button></td>
+              <td>
+                <button @click="deleteKategori(item.id)">
+                  <FontAwesomeIcon class="text-red-500" icon="fa-solid fa-trash-can"/>
+                </button>
+              </td>
             </tr>
             </tbody>
           </table>
@@ -144,7 +150,8 @@ export default {
         nama: null,
         nominal: null,
         jenjang: null
-      }
+      },
+      file_url: null
     }
   },
   mounted() {
@@ -153,9 +160,9 @@ export default {
     addKategori: function (id) {
       axios.post(process.env.VUE_APP_BASE_URL + 'api/event/kategori/' + id + '/addKategori/', this.kategori,
           {
-                headers: {
-                  'Authorization': `Bearer   ${this.$store.state.auth.access}`
-                }
+            headers: {
+              'Authorization': `Bearer   ${this.$store.state.auth.access}`
+            }
           })
           .then(resp => {
             console.log(resp)
@@ -182,47 +189,86 @@ export default {
       this.$store.state.formside.data[index].upload = event.target.files
     },
     submit: function () {
-      const formData = new FormData()
+      var formData = new FormData()
       this.$store.commit('RefreshToken')
       for (var i in this.$store.state.formside.data) {
         if (this.$store.state.formside.data[i].type === 'file' || this.$store.state.formside.data[i].type === 'video') {
           if (typeof this.$store.state.formside.data[i].content != 'string') {
-            formData.append(i, this.$store.state.formside.data[i].content)
+            formData.append('file', this.$store.state.formside.data[i].content)
           }
         } else if (i === 'images') {
           for (var x in this.$store.state.formside.data[i].upload) {
-            formData.append('image' + x, this.$store.state.formside.data[i].upload[x])
+            const formDataStorage = new FormData()
+
+            formDataStorage.append('image', this.$store.state.formside.data[i].upload[x])
+            axios.post(process.env.VUE_APP_STORAGE_URL + 'storage/?single=true', formDataStorage)
+                .then(resp => {
+                  formData.append('image' + x, resp.data)
+                })
+            if (this.$store.state.formside.data[i].upload.length - 1 == x) {
+              formData.append('image'+x, this.$store.state.formside.data[i].upload[x])
+              console.log('stop')
+              break
+            }
           }
         } else {
           formData.append(i, this.$store.state.formside.data[i].content)
         }
       }
-      // formData.append('token', this.$store.state.auth.access)
       if (this.$store.state.formside.methode === 'post') {
-        axios.post(process.env.VUE_APP_BASE_URL + this.$store.state.formside.url,
-            formData, {
-              headers: {
-                'Authorization': `Bearer   ${this.$store.state.auth.access}`
-              }
-            })
-            .then(resp => {
-            })
+        const formDataStorage = new FormData()
+        for (var key of formData.entries()) {
+          console.log(key[0] + ', ' + key[1]);
+        }
 
+        formDataStorage.append('image', formData.get('file'))
+        axios.post(process.env.VUE_APP_STORAGE_URL + 'storage/?single=true', formDataStorage)
+            .then(resp => {
+              formData.set('file', resp.data)
+              formData.set('logo', resp.data)
+            })
+            .finally(() => {
+              for (var key of formData.entries()) {
+                console.log(key[0] + ', ' + key[1]);
+              }
+              axios.post(process.env.VUE_APP_BASE_URL + this.$store.state.formside.url,
+                  formData, {
+                    headers: {
+                      'Authorization': `Bearer   ${this.$store.state.auth.access}`
+                    }
+                  })
+                  .then(resp => {
+                    // console.log(resp)
+                  })
+            })
       } else if (this.$store.state.formside.methode === 'put') {
         if (this.$store.state.formside.from == 'galeri') {
           this.$store.state.formside.url = this.$store.state.formside.url + 'updateGaleri/'
+          for (var key of formData.entries()) {
+            console.log(key[0] + ', ' + key[1]);
+          }
         }
-        axios.put(process.env.VUE_APP_BASE_URL + this.$store.state.formside.url,
-            formData, {
-              headers: {
-                'Authorization': `Bearer   ${this.$store.state.auth.access}`
-              }
-            })
-            .then(resp => {
-            })
+        const formDataStorage = new FormData()
 
+        formDataStorage.append('image', formData.get('file'))
+        axios.post(process.env.VUE_APP_STORAGE_URL + 'storage/?single=true', formDataStorage)
+            .then(resp => {
+              formData.set('file', resp.data)
+            })
+            .finally(() => {
+              axios.put(process.env.VUE_APP_BASE_URL + this.$store.state.formside.url,
+                  formData, {
+                    headers: {
+                      'Authorization': `Bearer   ${this.$store.state.auth.access}`
+                    }
+                  })
+                  .then(resp => {
+                    console.log(resp)
+                  })
+
+            })
       }
-      this.$store.commit('removeFormSide')
+      // this.$store.commit('removeFormSide')
       // this.$router.go()
     },
     remove: function () {
