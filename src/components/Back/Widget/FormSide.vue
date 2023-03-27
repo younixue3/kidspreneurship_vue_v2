@@ -228,9 +228,6 @@ export default {
               formData.set('logo', resp.data)
             })
             .finally(() => {
-              for (var key of formData.entries()) {
-                console.log(key[0] + ', ' + key[1]);
-              }
               axios.post(process.env.VUE_APP_BASE_URL + this.$store.state.formside.url,
                   formData, {
                     headers: {
