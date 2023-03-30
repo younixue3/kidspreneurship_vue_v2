@@ -101,7 +101,7 @@ export default {
         {
           img: 'https://img.freepik.com/free-photo/three-kids-reading_23-2147782154.jpg?w=1060&t=st=1679993484~exp=1679994084~hmac=9f99a2c32715594c6716834f0dd126de85f9db2d6f752db45d13699d8f1e3703',
           title: 'Story Telling',
-          file: process.env.VUE_APP_BASE_URL + 'event/logo/cr.pdf',
+          file: process.env.VUE_APP_BASE_URL + 'event/logo/st.pdf',
           desc: 'Lomba Storytelling oleh peserta Lomba Pendukung'
         },
         {
