@@ -2,11 +2,8 @@
   <div class="pt-24">
     <div class="p-10 text-white">
       <img class="w-full h-96 object-cover rounded-2xl" src="https://raw.githubusercontent.com/younixue3/stock_photo_rdev/main/andras-vas-Bd7gNnWJBkU-unsplash.webp">
-      <h1 class="text-3xl lg:text-5xl mt-8 text-amber-400 font-bold">Kids Preneurship</h1>
+      <h1 class="text-3xl lg:text-5xl mt-8 text-amber-400 font-bold">Kidspreneurship</h1>
       <p class="text-xs lg:text-lg text-center font-bold text-lg mt-5 px-5 lg:px-60">Kidspreneurship kembali hadir di tahun yang ke-10 dengan konsep dan semangat yang baru. Berbeda dengan tahun-tahun sebelumnya, di tahun 2023 ini seluruh rangakain event Kidspreneurship akan diselenggarakan secara daring. Dengan mengusung tema “FESTIVAL EPIK 2K23 (Entrepreneur Pelajar Indonesia Kreatif)”, Kidspreneurship menggaet para Sobat Preneur Muda khususnya di tingkat SMP/MTS, SMA/SMK/MAN se-Kalimantan Timur untuk berkompetisi dan menunjukkan kreativitas mereka dalam menyusun konsep bisnis terbaik.</p>
-      <button class="bg-yellow-500 mt-10 rounded-xl px-10 py-2 font-bold text-2xl">
-        Lihat Lomba
-      </button>
     </div>
     <div class="my-10 grid grid-cols-1 lg:grid-cols-2 gap-10 px-5 lg:px-32">
       <div v-for="(item, key) in this.data" :key="key" class="bg-gray-200 rounded-2xl h-72 flex relative overflow-hidden">
