@@ -11,6 +11,9 @@
             Kreativitasmu, Daftar dan Ikuti Lomba Anak Sekolahan yang Keren dan Menyenangkan!
           </div>
           <div v-if="!$store.state.auth.access" class="grid grid-cols-3 gap-2 gap-x-5 my-5">
+            <div v-if="this.error" class="bg-red-400 w-full text-white p-2 text-sm col-span-3 rounded-lg">
+              {{this.error}}
+            </div>
             <div class="col-span-2">
               <label class="pl-1 text-xs text-gray-500">Alamat Email</label>
               <input
@@ -68,6 +71,7 @@ export default {
       },
       event: [],
       eventchoose: {},
+      error: null
     }
   },
   mounted() {
@@ -96,6 +100,10 @@ export default {
       axios.post(process.env.VUE_APP_BASE_URL + 'api/token/', this.form)
           .then(resp => {
             this.$store.commit('Authentiation', resp)
+          })
+          .catch(e => {
+            console.log(e)
+            this.error = 'Email atau Password salah, mohon ulangi kembali'
           })
           .finally(() => {
             axios.post(process.env.VUE_APP_BASE_URL + 'api/get_profile/', this.$store.state.auth)
