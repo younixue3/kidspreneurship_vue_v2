@@ -125,12 +125,24 @@
 <script>
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import FormSide from "@/components/Back/Widget/FormSide";
+import axios from "axios";
 
 export default {
   name: "MenuBarComponent",
   components: {
     FormSide,
     FontAwesomeIcon
+  },
+  mounted() {
+    axios.get(process.env.VUE_APP_BASE_URL + 'api/publikasi/berita/', {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
+        .then(resp => {
+          this.berita = resp.data.results
+          this.nextpagi = resp.data.next
+          this.prevpagi = resp.data.previous
+        })
+        .catch(e => {
+          this.$store.commit('Logout')
+        })
   }
 }
 </script>
