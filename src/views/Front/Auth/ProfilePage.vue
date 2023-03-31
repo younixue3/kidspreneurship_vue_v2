@@ -145,12 +145,22 @@ export default {
         })
         .finally(() => {
           this.getEvent()
+          this.getTransaksi()
           if (this.$store.state.profile.is_staff) {
             this.$router.push('')
           }
         })
   },
   methods: {
+    getTransaksi: function () {
+      axios.post(process.env.VUE_APP_BASE_URL + 'api/get_profile/', this.$store.state.auth)
+          .then(resp => {
+            this.$store.commit('getProfile', resp.data)
+          })
+          .catch(e => {
+            this.$store.commit('Logout')
+          })
+    },
     getEvent: function () {
       axios.get(process.env.VUE_APP_BASE_URL + 'api/event/event/', {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
           .then(resp => {
