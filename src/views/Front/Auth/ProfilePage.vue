@@ -231,22 +231,24 @@ export default {
     inputPembayaran: function () {
       const formData = new FormData()
       const formDataStorage = new FormData()
-      formDataStorage.append('bukti_pembayaran', this.$store.state.profile.transaksi.butki_pembayaran)
-      formData.append('status', 'proses')
-      axios.post(process.env.VUE_APP_STORAGE_URL + 'storage/', formDataStorage)
-          .then(resp => {
-            formData.append('bukti_pembayaran', resp.data)
-          })
-          .finally(() => {
-            axios.put(process.env.VUE_APP_BASE_URL + 'api/transaksi/' + this.$store.state.profile.transaksi.id + '/', formData, {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
-                .then(resp => {
-                  console.log(resp)
-                  axios.post(process.env.VUE_APP_BASE_URL + 'api/get_profile/', this.$store.state.auth)
-                      .then(resp => {
-                        this.$store.commit('getProfile', resp.data)
-                      })
-                })
-          })
+      if (this.$store.state.profile.transaksi.butki_pembayaran) {
+        formDataStorage.append('bukti_pembayaran', this.$store.state.profile.transaksi.butki_pembayaran)
+        formData.append('status', 'proses')
+        axios.post(process.env.VUE_APP_STORAGE_URL + 'storage/', formDataStorage)
+            .then(resp => {
+              formData.append('bukti_pembayaran', resp.data)
+            })
+            .finally(() => {
+              axios.put(process.env.VUE_APP_BASE_URL + 'api/transaksi/' + this.$store.state.profile.transaksi.id + '/', formData, {headers: {'Authorization': `Bearer   ${this.$store.state.auth.access}`}})
+                  .then(resp => {
+                    console.log(resp)
+                    axios.post(process.env.VUE_APP_BASE_URL + 'api/get_profile/', this.$store.state.auth)
+                        .then(resp => {
+                          this.$store.commit('getProfile', resp.data)
+                        })
+                  })
+            })
+      }
     },
   }
 }
