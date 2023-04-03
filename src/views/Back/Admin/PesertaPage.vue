@@ -20,6 +20,7 @@
         <tr class=" rounded-lg">
           <th class="pl-7 py-3 border-r rounded-tl-lg">Peserta</th>
           <th class="pl-4 py-3 border-r">Asal Sekolah</th>
+          <th class="pl-4 py-3 border-r">Lomba</th>
           <th class="pl-4 py-3 border-r">Bukti Pembayaran</th>
           <th class="pl-3.5 py-3 w-10  rounded-tr-lg">#</th>
         </tr>
@@ -32,6 +33,9 @@
           </td>
           <td class="truncate pl-4 border-r">
             {{ item.asal_sekolah }}
+          </td>
+          <td class="truncate pl-4 border-r">
+            {{ item.group_event ? item.group_event.event == 1 ? 'Kidspreneurship 2K23' : 'Lomba Pendukung' : null }}
           </td>
           <td class="truncate pl-4 border-r">
             <button class="font-normal text-white rounded-lg px-2 uppercase mr-2"
@@ -98,6 +102,7 @@ export default {
             this.pesertafilter = resp.data.results
             this.nextpagi = resp.data.next
             this.prevpagi = resp.data.previous
+            console.log(resp.data.results)
           })
     },
     nextPagi: function () {
@@ -107,6 +112,7 @@ export default {
             this.pesertafilter = resp.data.results
             this.nextpagi = resp.data.next
             this.prevpagi = resp.data.previous
+            console.log(resp.data.results)
           })
     },
     getpeserta: function () {
@@ -116,6 +122,7 @@ export default {
             this.pesertafilter = resp.data.results
             this.nextpagi = resp.data.next
             this.prevpagi = resp.data.previous
+            console.log(resp.data.results)
           })
     },
     menuFormSide: function (id, bukti_pembayaran) {

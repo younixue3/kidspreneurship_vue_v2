@@ -15,7 +15,12 @@
           <div class="absolute w-full pr-6 py-8">
             <h2 class="text-white font-bold text-lg lg:text-2xl truncate">{{item.title}}</h2>
             <p class="text-white text-xs lg:text-sm mt-5">{{item.desc}}</p>
-            <a :href="item.file" class="px-4 bg-[#143359] text-sm lg:text-base text-white rounded-lg mt-5">Kententuan</a>
+            <div>
+              <a :href="item.file" class="px-4 bg-[#143359] text-sm lg:text-base text-white rounded-lg mt-5">Kententuan</a>
+            </div>
+            <div>
+              <a v-if="item.file_tambahan" :href="item.file_tambahan" class="px-4 bg-[#143359] text-sm lg:text-base text-white rounded-lg mt-5">Pilihan Cerita</a>
+            </div>
           </div>
         </div>
       </div>
@@ -99,6 +104,7 @@ export default {
           img: 'https://img.freepik.com/free-photo/three-kids-reading_23-2147782154.jpg?w=1060&t=st=1679993484~exp=1679994084~hmac=9f99a2c32715594c6716834f0dd126de85f9db2d6f752db45d13699d8f1e3703',
           title: 'Story Telling',
           file: process.env.VUE_APP_BASE_URL + 'event/logo/st.pdf',
+          file_tambahan: process.env.VUE_APP_BASE_URL + 'event/logo/lcn.pdf',
           desc: 'Lomba Storytelling oleh peserta Lomba Pendukung'
         },
         {

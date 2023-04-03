@@ -26,6 +26,7 @@ import ProfilePage from "@/views/Front/Auth/ProfilePage";
 import BackTestimoniPage from "@/views/Back/Publikasi/Testimoni/BackTestimoniPage";
 import BackJuriPage from "@/views/Back/Publikasi/Juri/BackJuriPage";
 import BackSponsorPage from "@/views/Back/Event/BackSponsorPage";
+import LogoutPage from "@/views/LogoutPage";
 
 const routes = [
   {
@@ -156,6 +157,11 @@ const routes = [
     path: '/signin',
     name: 'signin',
     component: SignInPage
+  },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: LogoutPage
   },
 ]
 
