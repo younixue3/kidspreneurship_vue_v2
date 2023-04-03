@@ -262,11 +262,14 @@ export default {
                   .then(resp => {
                     console.log(resp)
                   })
+                  .finally(() => {
+                    this.$router.go()
+                  })
 
             })
       }
       // this.$store.commit('removeFormSide')
-      this.$router.go()
+
     },
     remove: function () {
       axios.delete(process.env.VUE_APP_BASE_URL + this.$store.state.formside.url, {
