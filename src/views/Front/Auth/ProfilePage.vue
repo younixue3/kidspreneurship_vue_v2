@@ -120,10 +120,6 @@ export default {
         total_nominal: null,
         anggota: [
           {nama: null},
-          {nama: null},
-          {nama: null},
-          {nama: null},
-          {nama: null},
         ]
       },
       event: [],
