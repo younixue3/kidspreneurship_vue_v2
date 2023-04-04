@@ -7,15 +7,6 @@
       <div class="flex">
         <img class=" w-52 lg:w-[40rem] m-auto" src="@/assets/epik2k23.png">
       </div>
-      <div class="flex mt-10">
-        <div class="lg:h-[30rem]  m-auto bg-white rounded-lg p-5">
-          <div class=" w-full h-full bg-gray-900 flex">
-            <video class="h-full m-auto" controls>
-              <source src="@/assets/videokp.mp4">
-            </video>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="mt-20 lg:mt-52">
       <h1 class="text-4xl lg:text-5xl text-yellow-500 font-bold">Kidspreneurship</h1>

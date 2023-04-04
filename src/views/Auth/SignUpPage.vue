@@ -1,29 +1,29 @@
 <template>
   <div class="flex h-screen bg-blue-700" :style="'background-image: url(' + require(`@/assets/3.png`) +')'">
-    <div class="flex space-x-10 m-auto bg-white w-[75rem] shadow-2xl shadow-slate-400">
-      <img src="@/assets/2.png" class="w-1/2 object-cover">
-      <div class="flex w-1/2 text-left p-8">
+    <div class="md:flex m-auto bg-white md:w-[75rem] shadow-2xl shadow-slate-400 p-5 md:p-0">
+      <img src="@/assets/2.png" class="hidden md:block md:w-1/2 object-cover">
+      <div class="flex md:w-1/2 text-left md:p-8">
         <div class="m-auto">
           <h1 class="text-2xl">Welcome to Kidspreneurship</h1>
           <div class="font-light text-sm">Tunjukkan Kreativitasmu, Daftar dan Ikuti Lomba Anak Sekolahan yang Keren dan Menyenangkan!</div>
-          <div class="grid grid-cols-3 gap-2 gap-x-5">
-            <div>
+          <div class="grid grid-cols-4 md:grid-cols-3 gap-2 gap-x-5">
+            <div class="col-span-2 md:col-span-1">
               <label class="pl-1 text-xs text-gray-500">Nama Depan</label>
               <input class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1" v-model="form.first_name" type="text">
             </div>
-            <div>
+            <div class="col-span-2 md:col-span-1">
               <label class="pl-1 text-xs text-gray-500">Nama Belakang</label>
               <input class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1" v-model="form.last_name" type="text">
             </div>
-            <div class="col-start-1">
+            <div class="md:col-start-1 col-span-4 md:col-span-2">
               <label class="pl-1 text-xs text-gray-500">Nomor Handpone</label>
               <input class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1"  v-model="form.no_hp" type="number">
             </div>
-            <div class="col-span-2">
+            <div class="md:col-start-1 col-span-4 md:col-span-2">
               <label class="pl-1 text-xs text-gray-500">Alamat Email</label>
               <input class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1" v-model="form.email" type="email">
             </div>
-            <div>
+            <div class="md:col-start-1 col-span-2 md:col-span-1">
               <label class="pl-1 text-xs text-gray-500">Jenjang</label>
               <select class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none uppercase rounded-lg px-1 py-1" v-model="form.jenjang">
                 <option>smp</option>
@@ -32,27 +32,27 @@
                 <option>tk</option>
               </select>
             </div>
-            <div class="col-start-1 col-span-2">
+            <div class="col-start-1 col-span-4 md:col-span-2">
               <label class="pl-1 text-xs text-gray-500">Asal Sekolah</label>
               <input class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1" v-model="form.asal_sekolah" type="text">
             </div>
-            <div class="col-start-1">
+            <div class="col-start-1 col-span-2 md:col-span-1">
               <label class="pl-1 text-xs text-gray-500">Provinsi</label>
               <select class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1" v-model="form.provinsi">
                 <option v-for="(item, index, key) in provinsi" :value="item.id" :key="key">{{item.provinsi}}</option>
               </select>
             </div>
-            <div>
+            <div class="col-span-2 md:col-span-1">
               <label class="pl-1 text-xs text-gray-500">Kota</label>
               <select class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1" v-model="form.kota">
                 <option v-for="(item, index, key) in kota_kab" :value="item.id"  :key="key">{{item.kota}}</option>
               </select>
             </div>
-            <div class="col-start-1 col-span-2">
+            <div class="col-start-1 col-span-4 md:col-span-2">
               <label class="pl-1 text-xs text-gray-500">Password</label>
               <input class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1" v-model="form.password" type="password">
             </div>
-            <div class="col-start-1 col-span-2">
+            <div class="col-start-1 col-span-4 md:col-span-2">
               <label class="pl-1 text-xs text-gray-500">Konfirmasi Password</label>
               <input class="w-full border border-gray-400 mt-2 focus:border-blue-500 focus:border-2 outline-none rounded-lg px-1 py-1" v-model="form.konfirmasi_password" type="password">
             </div>

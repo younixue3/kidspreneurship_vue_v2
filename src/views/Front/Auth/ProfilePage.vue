@@ -1,9 +1,9 @@
 <template>
   <div class="flex min-h-screen bg-blue-700" :style="'background-image: url(' + require(`@/assets/3.png`) +')'">
     <div
-        class="flex space-x-10 m-auto bg-white w-[75rem] shadow-2xl shadow-slate-400 transition-all ease-in-out duration-300">
-      <img src="@/assets/2.png" class="w-2/3 object-cover">
-      <div class="flex w-1/2 text-left p-8">
+        class="md:flex space-x-10 m-auto bg-white w-[75rem] shadow-2xl shadow-slate-400 transition-all ease-in-out duration-300">
+      <img src="@/assets/2.png" class="hidden md:block md:w-2/3 object-cover">
+      <div class="flex md:w-1/2 text-left p-8 md:p-1 lg:p-8">
         <div class="m-auto w-full">
           <h1 v-if="!$store.state.profile.transaksi" class="text-2xl">Welcome to
             Kidspreneurship</h1>

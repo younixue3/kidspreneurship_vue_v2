@@ -13,7 +13,7 @@
           <router-link to="/tentang">Tentang</router-link>
           <div @mouseover="openModal('publikasi')">Publikasi</div>
         </div>
-        <div class="w-96 hidden lg:flex justify-end">
+        <div class="w-96 hidden md:flex justify-end">
           <div v-if="!$store.state.auth.refresh" class="grid grid-cols-2 gap-3 w-52 h-5">
             <router-link to="/signin" class="bg-transparent border-white border-2 text-white rounded-md">
               Masuk
@@ -33,6 +33,27 @@
               Logout
             </button>
           </div>
+        </div>
+      </div>
+      <div class="w-full flex justify-center justify-end mt-2">
+        <div v-if="!$store.state.auth.refresh" class="grid grid-cols-2 gap-3 w-52 h-2">
+          <router-link to="/signin" class="bg-transparent border-white border-2 text-xs text-white rounded-md">
+            Masuk
+          </router-link>
+          <router-link to="/signup" class="bg-white border-2 text-xs text-black rounded-md">
+            Daftar
+          </router-link>
+        </div>
+        <div v-if="$store.state.auth.refresh" class="grid grid-cols-2 gap-3 w-52 h-2">
+          <router-link v-if="!$store.state.profile.is_staff" to="/profile" class="bg-transparent border-white border-2 text-xs text-white rounded-md">
+            Profile
+          </router-link>
+          <router-link v-if="$store.state.profile.is_staff" to="/dashboard" class="bg-transparent border-white border-2 text-xs text-white rounded-md">
+            Dashboard
+          </router-link>
+          <button @click="$store.commit('Logout')" class="bg-white border-2 text-xs text-black rounded-md">
+            Logout
+          </button>
         </div>
       </div>
     </div>
