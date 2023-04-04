@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <div class="w-full flex justify-center justify-end mt-2">
+      <div class="w-full md:hidden flex justify-center justify-end mt-2">
         <div v-if="!$store.state.auth.refresh" class="grid grid-cols-2 gap-3 w-52 h-2">
           <router-link to="/signin" class="bg-transparent border-white border-2 text-xs text-white rounded-md">
             Masuk
