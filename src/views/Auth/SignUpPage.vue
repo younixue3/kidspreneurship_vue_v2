@@ -29,7 +29,7 @@
                 <option>smp</option>
                 <option>sma</option>
                 <option>sd</option>
-                <option>tk</option>
+                <option value="tk">pg & tk</option>
               </select>
             </div>
             <div class="col-start-1 col-span-4 md:col-span-2">
