@@ -19,6 +19,7 @@
         <thead class="text-left border-b bg-gray-600 rounded-lg">
         <tr class=" rounded-lg">
           <th class="pl-7 py-3 border-r rounded-tl-lg">Peserta</th>
+          <th class="pl-4 py-3 border-r">Ponsel</th>
           <th class="pl-4 py-3 border-r">Asal Sekolah</th>
           <th class="pl-4 py-3 border-r">Lomba</th>
           <th class="pl-4 py-3 border-r">Bukti Pembayaran</th>
@@ -30,6 +31,9 @@
           <td class="truncate px-2 py-3 border-r">
             <div class="text-base">{{ item.first_name + ' ' + item.last_name }}</div>
             <div class="text-xs">{{ item.email }}</div>
+          </td>
+          <td class="truncate pl-4 border-r">
+            {{ item.no_hp }}
           </td>
           <td class="truncate pl-4 border-r">
             {{ item.asal_sekolah }}
