@@ -34,14 +34,14 @@
                 </div>
                 <p class="text-base font-normal">{{ $store.state.profile.transaksi.deskripsi }}</p>
               </div>
-              <div class="col-span-2" v-if="$store.state.profile.transaksi.status == 'pembayaran'">
+              <div class="col-span-2" v-if="$store.state.profile.transaksi.status != 'terverifikasi'">
                 <label class="pl-1 text-xs text-gray-500">Input Pembayaran</label>
                 <input
                     class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
                     @change="imageInput(index)" type="file">
               </div>
             </div>
-            <button v-if="$store.state.profile.transaksi.status == 'pembayaran'" @click="inputPembayaran"
+            <button v-if="$store.state.profile.transaksi.status != 'terverifikasi'" @click="inputPembayaran"
                     class="col-start-1 p-1 my-4 text-white text-lg rounded-lg bg-blue-700 hover:bg-amber-400 transition ease-in-out duration-150">
               Submit
             </button>
