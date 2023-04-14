@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full">
+  <div hidden class="w-full h-full">
     <div class="text-2xl lg:text-5xl text-white font-bold my-10">Juri dan Mentor</div>
     <div class="flex">
       <span class="m-auto grid grid-cols-4 gap-5">
