@@ -123,6 +123,21 @@
       </button>
     </div>
     <div class="mt-10 flex space-x-5" v-if="$store.state.formside.for == 'transaksi'">
+      <table class="w-full table-auto rounded-lg">
+        <thead class="text-center bg-gray-500">
+        <tr>
+          <td class="rounded-t-lg">Nama Anggota</td>
+        </tr>
+        </thead>
+        <tbody class="bg-white">
+        <tr class="text-black border border-black" v-for="(item, index, key) in $store.state.formside.anggota"
+            :key="key">
+          <td>{{ item.nama }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-10 flex space-x-5" v-if="$store.state.formside.for == 'transaksi'">
       <button @click="submit" class="bg-white text-black px-1" type="submit">Verifikasi</button>
       <button @click="$store.commit('removeFormSide')" class="bg-white text-black px-1">Cancel</button>
     </div>

@@ -49,7 +49,7 @@
             <a v-if="item.transaksi ? item.transaksi.bukti_pembayaran : false" :href="item.transaksi ? item.transaksi.bukti_pembayaran : '#'" target="_blank"><font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" /></a>
           </td>
           <td class="pl-1">
-            <button v-if="item.transaksi ? item.transaksi.bukti_pembayaran : false" class="hover:bg-gray-200 text-center rounded-lg w-7 h-7" @click="menuFormSide(item.transaksi.id, item.transaksi.bukti_pembayaran)">
+            <button v-if="item.transaksi ? item.transaksi.bukti_pembayaran : false" class="hover:bg-gray-200 text-center rounded-lg w-7 h-7" @click="menuFormSide(item.transaksi.id, item.transaksi.bukti_pembayaran, item.group_event ? item.group_event.anggota : null)">
               <font-awesome-icon icon="fa-solid fa-ellipsis-vertical"/>
             </button>
           </td>
@@ -129,12 +129,13 @@ export default {
             console.log(resp.data.results)
           })
     },
-    menuFormSide: function (id, bukti_pembayaran) {
+    menuFormSide: function (id, bukti_pembayaran, anggota) {
       this.$store.commit('pushFormSide',
           {
             url: 'api/transaksi/' + id + '/',
             methode: 'put',
             for: 'transaksi',
+            anggota: anggota,
             data: {
               status: {
                 content: 'terverifikasi',
