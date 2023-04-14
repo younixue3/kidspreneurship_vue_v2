@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 flex w-full relative my-32 overflow-hidden">
+  <div hidden class="bg-gray-100 flex w-full relative my-32 overflow-hidden">
     <div class="grid grid-cols-4 w-full justify-items-center py-10 gap-20">
       <div class="w-40 h-40 p-9 flex bg-white rounded-2xl transform" v-for="(item, key) in this.data" :class="[key === 5 ? 'col-start-4' : '', key === 0 ? 'rotate-12' : '', key === 1 ? 'rotate-12 scale-75 translate-x-16 translate-y-64 lg:translate-y-72' : '', key === 2 ? '-rotate-12 scale-125 mt-5 translate-y-5 justify-self-end' : '', key === 3 ? '-rotate-12 scale-75' : '', key === 4 ? '-rotate-12' : '', key === 3 ? '-rotate-12 scale-75' : '', key === 5 ? 'rotate-12 scale-75' : '']" :key="key">
         <img class="m-auto bg-white" :src="item.logo">
