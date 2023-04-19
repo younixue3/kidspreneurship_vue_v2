@@ -1,5 +1,6 @@
 <template>
   <div @click="closeModal">
+    <ModalComponent />
     <div class="overflow-hidden w-full relative h-[40rem] lg:h-[52rem] z-0">
       <HeroCardComponent></HeroCardComponent>
     </div>
@@ -39,6 +40,7 @@ import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import CardGalleryComponent from "@/components/Front/CardGalleryComponent";
 import CTAComponent from "@/components/Front/CTAComponent";
 import axios from "axios";
+import ModalComponent from "@/components/Widget/ModalComponent";
 
 export default {
   name: "HomePage",
@@ -46,7 +48,8 @@ export default {
     HeroCardComponent,
     FontAwesomeIcon,
     CardGalleryComponent,
-    CTAComponent
+    CTAComponent,
+    ModalComponent
   },
   data() {
     return {

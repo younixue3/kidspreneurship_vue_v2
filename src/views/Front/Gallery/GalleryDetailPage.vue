@@ -1,7 +1,7 @@
 <template>
-  <div class=" pt-40 p-20">
+  <div class="pt-32 md:pt-40 p-5 md:p-20">
     <h1 class="text-4xl mb-20">{{this.data.tahun}}</h1>
-    <div class="grid grid-cols-4 gap-5">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
       <img v-for="(item, key) in this.data.image" :key="key" class="w-80 h-80 bg-white object-cover bg-gray-100 rounded-2xl" :src="item.file">
     </div>
     <PaginationComponent />
