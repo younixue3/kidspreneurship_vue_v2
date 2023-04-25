@@ -63,8 +63,8 @@ export default {
         },
         {
           file: 'https://backend.kidspreneurship.co.id/loginpage_qpez1SN.png',
-          judul: 'Register Developing Dynamic Gen-Z Creativepreneurs Talkshow',
-          slug: 'register-developing-dynamic-gen-z-creativepreneurs'
+          judul: 'Register Talkshow',
+          slug: 'register-talkshow'
         }
       ]
     }
