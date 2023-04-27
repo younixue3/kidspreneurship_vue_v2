@@ -33,9 +33,9 @@
               <h2 class="text-white font-bold text-base lg:text-2xl truncate">{{ item.judul }}</h2>
               <span class="text-white text-sm font-bold"></span>
               <p class="text-white text-sm mt-10 h-24 overflow-hidden mb-5" v-html="item.isi"></p>
-              <router-link :to="'/berita/'+item.slug"
+              <a :href="item.slug"
                            class="px-4 bg-amber-400 text-black text-xs lg:text-2xl rounded-lg">Klik Disini
-              </router-link>
+              </a>
             </div>
           </div>
         </div>
@@ -57,14 +57,14 @@ export default {
       status: true,
       data: [
         {
-          file: 'https://forms.gle/rmPs9aPGJqcbuzZB9',
+          file: 'https://backend.kidspreneurship.co.id/loginpage_715ncxO.png',
           judul: 'Pendaftaran Lomba Pendukung',
-          slug: 'pendaftaran-lomba-pendukung'
+          slug: 'https://forms.gle/rmPs9aPGJqcbuzZB9'
         },
         {
-          file: 'https://bit.ly/talkshowepik2023',
+          file: 'https://backend.kidspreneurship.co.id/loginpage_qpez1SN.png',
           judul: 'Register Talkshow',
-          slug: 'register-talkshow'
+          slug: 'https://bit.ly/talkshowepik2023'
         }
       ]
     }
