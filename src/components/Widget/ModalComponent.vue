@@ -57,12 +57,12 @@ export default {
       status: true,
       data: [
         {
-          file: 'https://backend.kidspreneurship.co.id/loginpage_715ncxO.png',
+          file: 'https://forms.gle/rmPs9aPGJqcbuzZB9',
           judul: 'Pendaftaran Lomba Pendukung',
           slug: 'pendaftaran-lomba-pendukung'
         },
         {
-          file: 'https://backend.kidspreneurship.co.id/loginpage_qpez1SN.png',
+          file: 'https://bit.ly/talkshowepik2023',
           judul: 'Register Talkshow',
           slug: 'register-talkshow'
         }
