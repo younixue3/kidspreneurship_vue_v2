@@ -13,43 +13,28 @@
           <div class="flex relative text-end w-full h-full">
             <div class="w-full h-full pr-3 lg:pr-6 py-8">
               <h2 class="text-black font-bold text-base lg:text-2xl">{{ item.judul }}</h2>
-              <router-link :to="'/berita/'+item.slug"
-                           class="px-4 bg-amber-400 text-black text-xs lg:text-2xl rounded-lg">Klik Disini
-              </router-link>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="p-5 hidden md:block">
-        <div
-             class="bg-gray-200 rounded-2xl h-72 flex my-5 relative overflow-hidden">
-          <img src="https://backend.kidspreneurship.co.id/loginpage_715ncxO.png" class="object-cover rounded-l-2xl h-full w-3/5">
-          <div class="flex relative text-end w-3/5 h-full">
-            <div
-                class="absolute rounded-3xl bg-[#143359] w-[50rem] h-96 transform -rotate-12 -translate-y-20 -translate-x-5">
-
-            </div>
-            <div class="absolute w-full pr-3 lg:pr-6 py-8">
-              <h2 class="text-white font-bold text-base lg:text-2xl truncate">Pendaftaran Lomba Pendukung</h2>
-              <span class="text-white text-sm font-bold"></span>
-              <a href="https://forms.gle/rmPs9aPGJqcbuzZB9"
+              <a :href="item.slug"
                            class="px-4 bg-amber-400 text-black text-xs lg:text-2xl rounded-lg">Klik Disini
               </a>
             </div>
           </div>
         </div>
-        <div
-            class="bg-gray-200 rounded-2xl h-72 flex my-5 relative overflow-hidden">
-          <img src="https://backend.kidspreneurship.co.id/loginpage_qpez1SN.png" class="object-cover rounded-l-2xl h-full w-3/5">
+      </div>
+      <div class="p-5 hidden md:block">
+        <div v-for="(item, key) in this.data" :key="key"
+             class="bg-gray-200 rounded-2xl h-72 flex my-5 relative overflow-hidden">
+          <img :src="item.file" class="object-cover rounded-l-2xl h-full w-3/5">
           <div class="flex relative text-end w-3/5 h-full">
             <div
                 class="absolute rounded-3xl bg-[#143359] w-[50rem] h-96 transform -rotate-12 -translate-y-20 -translate-x-5">
 
             </div>
             <div class="absolute w-full pr-3 lg:pr-6 py-8">
-              <h2 class="text-white font-bold text-base lg:text-2xl truncate">Register Talkshow</h2>
-              <a href="https://bit.ly/talkshowepik2023"
-                 class="px-4 bg-amber-400 text-black text-xs lg:text-2xl rounded-lg">Klik Disini
+              <h2 class="text-white font-bold text-base lg:text-2xl truncate">{{ item.judul }}</h2>
+              <span class="text-white text-sm font-bold"></span>
+              <p class="text-white text-sm mt-10 h-24 overflow-hidden mb-5" v-html="item.isi"></p>
+              <a :href="item.slug"
+                           class="px-4 bg-amber-400 text-black text-xs lg:text-2xl rounded-lg">Klik Disini
               </a>
             </div>
           </div>
