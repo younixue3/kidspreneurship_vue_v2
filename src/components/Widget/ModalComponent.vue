@@ -47,8 +47,7 @@
 
             </div>
             <div class="absolute w-full pr-3 lg:pr-6 py-8">
-              <h2 class="text-white font-bold text-base lg:text-2xl truncate"></h2>
-              <span class="text-white text-sm font-bold">Register Talkshow</span>
+              <h2 class="text-white font-bold text-base lg:text-2xl truncate">Register Talkshow</h2>
               <a href="https://bit.ly/talkshowepik2023"
                  class="px-4 bg-amber-400 text-black text-xs lg:text-2xl rounded-lg">Klik Disini
               </a>
