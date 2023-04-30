@@ -9,7 +9,7 @@
         <img class=" w-52 lg:w-[40rem] m-auto" src="@/assets/epik2k23.png">
       </div>
     </div>
-    <div class="mt-20 lg:mt-52">
+    <div class="mt-52 lg:mt-52">
       <h1 class="text-4xl lg:text-5xl text-yellow-500 font-bold">Kidspreneurship</h1>
       <div class="px-5 lg:px-20 text-white font-semibold text-sm lg:text-lg mt-5"><a class="text-sky-400" href="#">Kidspreneurship</a> merupakan event tahunan <a class="text-sky-400" href="https://hbics.sch.id/">Sekolah Harapan Bangsa Balikpapan</a>. Kidsprenurship sendiri lahir karena keprihatinan sekolah akan rendahnya angka wiraswasta di Indonesia di tahun 2013. Untuk itu <a class="text-sky-400" href="https://hbics.sch.id/">Sekolah Harapan Bangsa Balikpapan</a> mengadakan event <a class="text-sky-400" href="#">Kidspreneurship</a> pertama kali di tahun 2013 bagi siswa-siswi SD Harapan Bangsa Balikpapan, dan inilah yang menjadi latar belakang dari nama Kidsprenurship. Dengan hadirnya <a class="text-sky-400" href="#">Kidspreneurship</a>, diharapkan mampu mengasah kemampuan wirausaha serta kreatifitas anak-anak sejak dini. Sehingga dapat mempersiapkan generasi yang memiliki kemampuan dalam wirausaha dan meningkatkan angka wirausaha di Indonesia nantinya.
       </div>
