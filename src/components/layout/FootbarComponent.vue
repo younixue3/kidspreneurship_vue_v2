@@ -1,6 +1,6 @@
 <template>
   <div class="bg-amber-400 p-5 lg:p-32 px-12 lg:px-5 lg:flex justify-between">
-    <div class="w-72">
+    <div class="lg:w-72">
       <img class="h-12 lg:h-24 mb-5 lg:mb-10" src="@/assets/hbics.png">
       <div class="text-left text-xs font-bold">Indrakila Street No. 99 G - Balikpapan 76125 East Borneo - Indonesia</div>
       <div class="text-left text-xs font-bold">Telephone : +62542 8510 / +62812 5051 5333</div>
