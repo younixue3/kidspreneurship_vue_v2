@@ -15,10 +15,10 @@
         </div>
         <div class="w-96 hidden md:flex justify-end">
           <div v-if="!$store.state.auth.refresh" class="grid grid-cols-2 gap-3 w-52 h-5">
-            <router-link to="/signin" class="bg-transparent border-white border-2 text-white rounded-md">
+            <router-link to="/signin" class="bg-transparent col-start-2 border-white border-2 text-white rounded-md">
               Masuk
             </router-link>
-            <router-link to="/signup" class="bg-white border-2 text-black rounded-md">
+            <router-link hidden to="/signup" class="bg-white border-2 text-black rounded-md" disabled>
               Daftar
             </router-link>
           </div>

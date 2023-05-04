@@ -1,6 +1,6 @@
 <template>
   <div @click="closeModal">
-    <ModalComponent />
+<!--    <ModalComponent />-->
     <div class="overflow-hidden w-full relative h-[40rem] lg:h-[52rem] z-0">
       <HeroCardComponent></HeroCardComponent>
     </div>
