@@ -30,6 +30,21 @@
     </div>
     <CardGalleryComponent/>
     <CTAComponent />
+    <div class="bg-gray-100 flex w-full relative my-32 overflow-hidden">
+      <div class="grid grid-cols-6 p-20 w-full justify-items-center py-10 gap-10">
+        <div class="w-40 h-40 flex bg-white rounded-2xl transform overflow-hidden" v-for="(item, key) in this.data" :class="key == 8 || key == 12 ? 'col-start-5': key == 14 ? 'col-start-2' : ''" :key="key">
+          <img class="m-auto bg-white object-contain" :src="require('@/assets/edufair/' + item.logo)">
+        </div>
+      </div>
+      <div class="absolute w-full h-full flex">
+        <div class="m-auto">
+          <h3 class="font-bold text-xl lg:text-4xl">Participating Universities in</h3>
+          <h1 class="font-bold text-4xl lg:text-6xl">
+            Education Fair
+          </h1>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -53,7 +68,63 @@ export default {
   },
   data() {
     return {
-      testimoni: []
+      testimoni: [],
+      data: [
+        {
+          logo: '1.png'
+        },
+        {
+          logo: '2.jpg'
+        },
+        {
+          logo: '3.png'
+        },
+        {
+          logo: '4.png'
+        },
+        {
+          logo: '5.jpeg'
+        },
+        {
+          logo: '6.png'
+        },
+        {
+          logo: '7.png'
+        },
+        {
+          logo: '8.jpg'
+        },
+        {
+          logo: '9.png'
+        },
+        {
+          logo: '10.png'
+        },
+        {
+          logo: '11.jpg'
+        },
+        {
+          logo: '12.png'
+        },
+        {
+          logo: '13.jpg'
+        },
+        {
+          logo: '14.jpg'
+        },
+        {
+          logo: '15.png'
+        },
+        {
+          logo: '16.png'
+        },
+        {
+          logo: '17.jpeg'
+        },
+        {
+          logo: '18.png'
+        },
+      ]
     }
   },
   mounted() {
